@@ -1,0 +1,23 @@
+.menu {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 114%;
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: var(--accent-color);
+}
+
+.link--dark {
+  color: var(--dark-color);
+}
+
+.link--light {
+  color: var(--light-color);
+}
