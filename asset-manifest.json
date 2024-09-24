@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Simply-chocolate/static/css/main.69cd534a.css",
+    "main.js": "/Simply-chocolate/static/js/main.a1f4f488.js",
+    "static/media/background.jpg": "/Simply-chocolate/static/media/background.75407f277fc1b130e563.jpg",
+    "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
+    "static/media/logo.svg": "/Simply-chocolate/static/media/logo.c17eaabf21687247b7ba1a93a2d471ca.svg",
+    "static/media/instagram.svg": "/Simply-chocolate/static/media/instagram.61563cd920b1fc360f53f85acec25b7b.svg",
+    "static/media/twitter.svg": "/Simply-chocolate/static/media/twitter.f52248a4fe1adf24efa7fa952f2e7086.svg",
+    "index.html": "/Simply-chocolate/index.html",
+    "main.69cd534a.css.map": "/Simply-chocolate/static/css/main.69cd534a.css.map",
+    "main.a1f4f488.js.map": "/Simply-chocolate/static/js/main.a1f4f488.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69cd534a.css",
+    "static/js/main.a1f4f488.js"
+  ]
+}
