@@ -1,26 +1,40 @@
-import Menu from "../menu/Menu";
 import "./header.css";
+import Menu from "../menu/Menu";
+import MobileMenu from "../mobileMenu/MobileMenu";
+import { MENU_STYLE } from "../menu/data";
 import logo from "./../../img/icons/logo.svg";
-import instagram from "./../../img/icons/instagram.svg";
-import twitter from "./../../img/icons/twitter.svg";
+import { ReactComponent as Instagram } from "./../../img/icons/instagram.svg";
+import { ReactComponent as Twitter } from "./../../img/icons/twitter.svg";
+import { ReactComponent as Burger } from "./../../img/icons/menu.svg";
+import React, { useState } from "react";
 
 export default function Header() {
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
     <header className="header">
       <div className="container">
         <nav className="nav">
           <a className="logo" href="/">
-            <img src={logo} alt="Logo Simply chocolate" />
+            <img className="logo" src={logo} alt="Logo Simply chocolate" />
           </a>
-          <Menu />
+          <Menu style={MENU_STYLE.HEADER} />
           <div className="social">
             <a href="#">
-              <img src={instagram} alt="" />
+              <Instagram className="social__icon" />
             </a>
             <a href="#">
-              <img src={twitter} alt="" />
+              <Twitter className="social__icon" />
             </a>
           </div>
+          <button
+            className="mobile-menu__btn-open"
+            onClick={() => setMenuActive(!menuActive)}
+          >
+            <Burger />
+          </button>
+
+          <MobileMenu active={menuActive} setActive={setMenuActive} />
         </nav>
       </div>
     </header>

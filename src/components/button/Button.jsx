@@ -1,13 +1,6 @@
 import "./button.css";
 import { BUTTON_STYLE } from "./button";
 
-// const BUTTON_STYLE = {
-//   ORANGE: "ORANGE",
-//   TRANSPARENT: "TRANSPARENT",
-//   TRANSPARENT_OR: "TRANSPARENT_OR",
-//   SCROLL_DOWN: "SCROLL_DOWN",
-// };
-
 export default function Button({ children, style }) {
   const getButtonClass = () => {
     switch (style) {

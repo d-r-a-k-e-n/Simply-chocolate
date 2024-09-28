@@ -3,6 +3,11 @@
   margin: 24px 0 32px;
 }
 
+.logo {
+  width: 169px;
+  height: 21px;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -11,6 +16,42 @@
 }
 
 .social {
-  display: flex;
+  display: none;
   gap: 18px;
+}
+
+.social__icon * {
+  stroke: var(--dark-color);
+  fill: transparent;
+  transition: all 0.3s;
+}
+
+.social__icon:hover * {
+  stroke: var(--accent-color);
+}
+
+.mobile-menu__btn-open {
+  background: transparent;
+  border: none;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 940px) {
+  .social {
+    display: flex;
+  }
+
+  .mobile-menu__btn-open {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .logo {
+    width: 213px;
+    height: 24px;
+  }
 }
