@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/Simply-chocolate/static/css/main.7765374a.css",
-    "main.js": "/Simply-chocolate/static/js/main.f5c39bff.js",
+    "main.css": "/Simply-chocolate/static/css/main.0dd22fd6.css",
+    "main.js": "/Simply-chocolate/static/js/main.0715d0ce.js",
     "static/media/background.jpg": "/Simply-chocolate/static/media/background.75407f277fc1b130e563.jpg",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
     "static/media/logo.svg": "/Simply-chocolate/static/media/logo.4a4daf911d6b5eb55af1e2c916f18566.svg",
+    "static/media/chocolate.svg": "/Simply-chocolate/static/media/chocolate.dc9a54723638fa6039fca3b1de421207.svg",
     "static/media/instagram.svg": "/Simply-chocolate/static/media/instagram.36e364f71efc660425c5837935e71264.svg",
+    "static/media/coin.svg": "/Simply-chocolate/static/media/coin.d748f7f6a5381ddaa9fd2e07a672d4ef.svg",
     "static/media/twitter.svg": "/Simply-chocolate/static/media/twitter.f52248a4fe1adf24efa7fa952f2e7086.svg",
+    "static/media/spoon.svg": "/Simply-chocolate/static/media/spoon.360846656377eca828c24db3851860e0.svg",
     "index.html": "/Simply-chocolate/index.html",
     "static/media/x-close.svg": "/Simply-chocolate/static/media/x-close.c7aafb84cda059783e5d6e0d2e715b76.svg",
     "static/media/menu.svg": "/Simply-chocolate/static/media/menu.1fed03dc496005ac3630863a16fb120b.svg",
-    "main.7765374a.css.map": "/Simply-chocolate/static/css/main.7765374a.css.map",
-    "main.f5c39bff.js.map": "/Simply-chocolate/static/js/main.f5c39bff.js.map"
+    "main.0dd22fd6.css.map": "/Simply-chocolate/static/css/main.0dd22fd6.css.map",
+    "main.0715d0ce.js.map": "/Simply-chocolate/static/js/main.0715d0ce.js.map"
   },
   "entrypoints": [
-    "static/css/main.7765374a.css",
-    "static/js/main.f5c39bff.js"
+    "static/css/main.0dd22fd6.css",
+    "static/js/main.0715d0ce.js"
   ]
 }
