@@ -5,20 +5,20 @@ import "../button/button.css";
 
 export default function HeroSection() {
   return (
-    <section className="hero">
+    <section className="hero-section">
       <div className="container">
-        <div className="hero-container">
-          <h2 className="hero__title">
+        <div className="hero-section__container">
+          <h2 className="hero-section__title">
             Treat yourself or a loved one to our finest ingredients for a moment
             of pure delight!
           </h2>
 
-          <div className="button-container">
-            <ul className="button__list">
-              <li className="button__item">
+          <div className="hero-section__button-container">
+            <ul className="hero-section__button-list">
+              <li className="hero-section__button-item">
                 <Button style={BUTTON_STYLE.ORANGE}>Buy now</Button>
               </li>
-              <li className="button__item">
+              <li className="hero-section__button-item">
                 <Button style={BUTTON_STYLE.TRANSPARENT}>How it’s made</Button>
               </li>
             </ul>

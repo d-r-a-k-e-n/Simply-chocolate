@@ -1,4 +1,8 @@
-.hero-container {
+.hero-section {
+  padding-bottom: 72px;
+}
+
+.hero-section__container {
   background-image: url(../../img/background.jpg);
   background-repeat: no-repeat;
   background-position: center top;
@@ -7,7 +11,7 @@
   border-radius: 30px;
 }
 
-.hero__title {
+.hero-section__title {
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;
@@ -17,18 +21,22 @@
   margin-bottom: 32px;
 }
 
-.button__list {
+.hero-section__button-list {
   display: flex;
   gap: 14px;
 }
 
 @media screen and (min-width: 768px) {
-  .hero-container {
+  .hero-section {
+    padding-bottom: 50px;
+  }
+
+  .hero-section__container {
     padding: 671px 40px 40px;
     border-radius: 30px;
   }
 
-  .hero__title {
+  .hero-section__title {
     font-weight: 500;
     font-size: 28px;
     max-width: 484px;
@@ -36,7 +44,11 @@
 }
 
 @media screen and (min-width: 1140px) {
-  .hero-container {
+  .hero-section {
+    padding-bottom: 72px;
+  }
+
+  .hero-section__container {
     padding: 381px 40px 40px;
     border-radius: 30px;
   }
