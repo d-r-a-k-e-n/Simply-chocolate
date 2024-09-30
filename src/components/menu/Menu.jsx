@@ -1,20 +1,8 @@
 import "./menu.css";
-import { MENU_STYLE } from "./data";
 
-export default function Menu({ style }) {
-  const getButtonClass = () => {
-    switch (style) {
-      case MENU_STYLE.HEADER:
-        return "menu header__menu";
-      case MENU_STYLE.FOOTER:
-        return "menu footer__menu";
-      case MENU_STYLE.MOBILE:
-        return "menu mobile__menu";
-    }
-  };
-
+export default function Menu({ className }) {
   return (
-    <ul className={getButtonClass()}>
+    <ul className={className}>
       <li>
         <a className="link" href="#">
           Home

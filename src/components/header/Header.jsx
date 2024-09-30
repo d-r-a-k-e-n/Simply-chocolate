@@ -1,7 +1,6 @@
 import "./header.css";
 import Menu from "../menu/Menu";
 import MobileMenu from "../mobileMenu/MobileMenu";
-import { MENU_STYLE } from "../menu/data";
 import logo from "./../../img/icons/logo.svg";
 import { ReactComponent as Instagram } from "./../../img/icons/instagram.svg";
 import { ReactComponent as Twitter } from "./../../img/icons/twitter.svg";
@@ -18,7 +17,7 @@ export default function Header() {
           <a className="logo" href="/">
             <img className="logo" src={logo} alt="Logo Simply chocolate" />
           </a>
-          <Menu style={MENU_STYLE.HEADER} />
+          <Menu className={"menu header__menu"} />
           <div className="social">
             <a href="#">
               <Instagram className="social__icon" />

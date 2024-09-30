@@ -1,5 +1,4 @@
 import Button from "../button/Button.jsx";
-import { BUTTON_STYLE } from "../button/button.js";
 import "./heroSection.css";
 import "../button/button.css";
 
@@ -16,10 +15,12 @@ export default function HeroSection() {
           <div className="hero-section__button-container">
             <ul className="hero-section__button-list">
               <li className="hero-section__button-item">
-                <Button style={BUTTON_STYLE.ORANGE}>Buy now</Button>
+                <Button className={"button button--orange"}>Buy now</Button>
               </li>
               <li className="hero-section__button-item">
-                <Button style={BUTTON_STYLE.TRANSPARENT}>How it’s made</Button>
+                <Button className={"button button--transparent"}>
+                  How it’s made
+                </Button>
               </li>
             </ul>
           </div>

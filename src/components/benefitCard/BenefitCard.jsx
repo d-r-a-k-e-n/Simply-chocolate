@@ -1,6 +1,6 @@
-import "./benefit.css";
+import "./benefitCard.css";
 
-export default function Benefit({ icon, title, text }) {
+export default function BenefitCard({ icon, title, text }) {
   return (
     <li className="benefit-section__item">
       <div className="benefit-section__icon">{icon}</div>
