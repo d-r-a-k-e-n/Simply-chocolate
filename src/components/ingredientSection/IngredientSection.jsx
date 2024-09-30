@@ -1,4 +1,4 @@
-import "./ingredient.css";
+import "./ingredientSection.css";
 import IngredientCard from "../ingredientCard/IngredientCard";
 
 import Chocolate from "./../../img/ingredient/chocolate.png";
@@ -6,7 +6,7 @@ import Milk from "./../../img/ingredient/milk.png";
 import Nuts from "./../../img/ingredient/nuts.png";
 import Semi from "./../../img/ingredient/semi.png";
 
-export default function Ingredient() {
+export default function IngredientSection() {
   return (
     <section className="ingredient-section">
       <div className="container">

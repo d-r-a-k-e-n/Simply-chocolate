@@ -1,8 +1,9 @@
 import Header from "./components/header/Header";
 import HeroSection from "./components/heroSection/HeroSection";
 import BenefitSection from "./components/benefitSection/BenefitSection";
-import Ingredient from "./components/ingredient/Ingredient";
-// import Footer from "./components/footer/Footer";
+import IngredientSection from "./components/ingredientSection/IngredientSection";
+import SubcribeSection from "./components/subcribeSection/SubcribeSection";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   return (
@@ -11,9 +12,10 @@ export default function App() {
       <main>
         <HeroSection />
         <BenefitSection />
-        <Ingredient />
+        <IngredientSection />
+        <SubcribeSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

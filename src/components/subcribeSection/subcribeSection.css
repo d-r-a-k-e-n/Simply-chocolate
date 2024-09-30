@@ -1,0 +1,46 @@
+.subcribe-section {
+  background-image: url(../../img/background-subcribe.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.subcribe-section {
+  padding: 62px 0;
+}
+
+.subcribe-section__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--light-color);
+  max-width: 290px;
+  margin: 0 auto 24px;
+}
+
+.subcribe-section__text {
+  text-align: center;
+  color: var(--light-color);
+  max-width: 326px;
+  margin: 0 auto 24px;
+}
+
+.subcribe-section__btn {
+  display: flex;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .subcribe-section__title {
+    font-size: 24px;
+    line-height: 117%;
+    max-width: 380px;
+  }
+
+  .subcribe-section__text {
+    max-width: 467px;
+  }
+}
