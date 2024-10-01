@@ -19,7 +19,7 @@ export default function Menu({ className }) {
         </a>
       </li>
       <li>
-        <a className="link" href="#">
+        <a className="link" href="#top-sellers-section">
           Top sellers
         </a>
       </li>

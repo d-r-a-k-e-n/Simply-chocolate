@@ -14,7 +14,7 @@ export default function Header() {
     <header className="header">
       <div className="container">
         <nav className="nav">
-          <a className="logo" href="/">
+          <a className="logo" href="#">
             <img className="logo" src={logo} alt="Logo Simply chocolate" />
           </a>
           <Menu className={"menu header__menu"} />
