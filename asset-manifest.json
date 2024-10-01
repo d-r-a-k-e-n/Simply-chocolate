@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Simply-chocolate/static/css/main.615c426e.css",
-    "main.js": "/Simply-chocolate/static/js/main.9c14c5c6.js",
+    "main.css": "/Simply-chocolate/static/css/main.075fb1c9.css",
+    "main.js": "/Simply-chocolate/static/js/main.70777bd3.js",
     "static/media/background-header.jpg": "/Simply-chocolate/static/media/background-header.75407f277fc1b130e563.jpg",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
@@ -21,11 +21,11 @@
     "index.html": "/Simply-chocolate/index.html",
     "static/media/x-close.svg": "/Simply-chocolate/static/media/x-close.c7aafb84cda059783e5d6e0d2e715b76.svg",
     "static/media/menu.svg": "/Simply-chocolate/static/media/menu.1fed03dc496005ac3630863a16fb120b.svg",
-    "main.615c426e.css.map": "/Simply-chocolate/static/css/main.615c426e.css.map",
-    "main.9c14c5c6.js.map": "/Simply-chocolate/static/js/main.9c14c5c6.js.map"
+    "main.075fb1c9.css.map": "/Simply-chocolate/static/css/main.075fb1c9.css.map",
+    "main.70777bd3.js.map": "/Simply-chocolate/static/js/main.70777bd3.js.map"
   },
   "entrypoints": [
-    "static/css/main.615c426e.css",
-    "static/js/main.9c14c5c6.js"
+    "static/css/main.075fb1c9.css",
+    "static/js/main.70777bd3.js"
   ]
 }
