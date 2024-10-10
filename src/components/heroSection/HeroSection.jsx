@@ -4,7 +4,7 @@ import "../button/button.css";
 
 export default function HeroSection() {
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="home">
       <div className="container">
         <div className="hero-section__container">
           <h2 className="hero-section__title">
@@ -14,14 +14,18 @@ export default function HeroSection() {
 
           <div className="hero-section__button-container">
             <ul className="hero-section__button-list">
-              <li className="hero-section__button-item">
-                <Button className={"button button--orange"}>Buy now</Button>
-              </li>
-              <li className="hero-section__button-item">
-                <Button className={"button button--transparent"}>
-                  How it’s made
-                </Button>
-              </li>
+              <a href="#">
+                <li className="hero-section__button-item">
+                  <Button className={"button button--orange"}>Buy now</Button>
+                </li>
+              </a>
+              <a href="#made-section">
+                <li className="hero-section__button-item">
+                  <Button className={"button button--transparent"}>
+                    How it’s made
+                  </Button>
+                </li>
+              </a>
             </ul>
           </div>
         </div>

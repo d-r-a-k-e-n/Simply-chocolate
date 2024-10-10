@@ -85,6 +85,7 @@
 
   .made-section__video {
     width: 600px;
+    margin: 0 auto;
   }
 
   .made-section__list-box {

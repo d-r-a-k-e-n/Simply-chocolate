@@ -1,0 +1,36 @@
+.products-section {
+  margin-bottom: 72px;
+}
+
+.products-section__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .products-section {
+    margin-bottom: 100px;
+  }
+
+  .products-section__title {
+    font-size: 24px;
+    line-height: 117%;
+    margin-bottom: 50px;
+  }
+
+  .products-section__list {
+    display: flex;
+    gap: 18px;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .products-section {
+    margin-bottom: 128px;
+  }
+}

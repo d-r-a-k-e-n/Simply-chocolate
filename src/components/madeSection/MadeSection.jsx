@@ -2,7 +2,7 @@ import "./madeSection.css";
 
 export default function MadeSection() {
   return (
-    <section className="made-section">
+    <section className="made-section" id="made-section">
       <div className="container">
         <h2 className="made-section__title">
           how it’s <span className="title-accent">made?</span>
@@ -14,10 +14,10 @@ export default function MadeSection() {
             height="315"
             src="https://www.youtube.com/embed/JPwZv4hnvYs?si=dUXl-MefRT1kc9CY"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
             loading="lazy"
           ></iframe>
           <div className="made-section__list-box">

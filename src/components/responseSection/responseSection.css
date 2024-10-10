@@ -1,0 +1,53 @@
+.response-section {
+  margin-bottom: 72px;
+}
+
+.response-section__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.response-section__list {
+  margin-bottom: 65px;
+  padding-left: 0;
+  padding-top: 40px;
+}
+
+.response-section__btn {
+  display: flex;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .response-section {
+    margin-bottom: 100px;
+  }
+
+  .response-section__title {
+    font-size: 24px;
+    line-height: 117%;
+
+    margin-bottom: 50px;
+  }
+
+  .response-section__list {
+    margin-bottom: 94px;
+    display: flex;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .response-section {
+    margin-bottom: 128px;
+  }
+
+  .response-section__list {
+    gap: 28px;
+  }
+}
