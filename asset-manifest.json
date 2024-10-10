@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Simply-chocolate/static/css/main.075fb1c9.css",
-    "main.js": "/Simply-chocolate/static/js/main.70777bd3.js",
+    "main.css": "/Simply-chocolate/static/css/main.66e6936a.css",
+    "main.js": "/Simply-chocolate/static/js/main.6152cc9d.js",
     "static/media/background-header.jpg": "/Simply-chocolate/static/media/background-header.75407f277fc1b130e563.jpg",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
@@ -11,6 +11,8 @@
     "static/media/chocolate-with-nuts.jpg": "/Simply-chocolate/static/media/chocolate-with-nuts.2cf56de560561e7cc511.jpg",
     "static/media/semi.png": "/Simply-chocolate/static/media/semi.c1191163c08a634a1442.png",
     "static/media/chocolate.png": "/Simply-chocolate/static/media/chocolate.73666b372efdf22f721d.png",
+    "static/media/classic-milk-chocolate.jpg": "/Simply-chocolate/static/media/classic-milk-chocolate.b035930244c8dd9401d8.jpg",
+    "static/media/review.jpg": "/Simply-chocolate/static/media/review.4fedfd326006671fc9ba.jpg",
     "static/media/nuts.png": "/Simply-chocolate/static/media/nuts.c58d36488559e93ba703.png",
     "static/media/logo.svg": "/Simply-chocolate/static/media/logo.4a4daf911d6b5eb55af1e2c916f18566.svg",
     "static/media/chocolate.svg": "/Simply-chocolate/static/media/chocolate.dc9a54723638fa6039fca3b1de421207.svg",
@@ -21,11 +23,11 @@
     "index.html": "/Simply-chocolate/index.html",
     "static/media/x-close.svg": "/Simply-chocolate/static/media/x-close.c7aafb84cda059783e5d6e0d2e715b76.svg",
     "static/media/menu.svg": "/Simply-chocolate/static/media/menu.1fed03dc496005ac3630863a16fb120b.svg",
-    "main.075fb1c9.css.map": "/Simply-chocolate/static/css/main.075fb1c9.css.map",
-    "main.70777bd3.js.map": "/Simply-chocolate/static/js/main.70777bd3.js.map"
+    "main.66e6936a.css.map": "/Simply-chocolate/static/css/main.66e6936a.css.map",
+    "main.6152cc9d.js.map": "/Simply-chocolate/static/js/main.6152cc9d.js.map"
   },
   "entrypoints": [
-    "static/css/main.075fb1c9.css",
-    "static/js/main.70777bd3.js"
+    "static/css/main.66e6936a.css",
+    "static/js/main.6152cc9d.js"
   ]
 }
