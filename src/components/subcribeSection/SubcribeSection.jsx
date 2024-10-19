@@ -1,7 +1,10 @@
+import NewsModal from "../newsModal/NewsModal";
 import "./subcribeSection.css";
 import "../button/button.css";
+import React, { useState } from "react";
 
 export default function SubcribeSection() {
+  const [modalSubcribeIsOpen, setModalSubcribeIsOpen] = useState(false);
   return (
     <section className="subcribe-section">
       <div className="container subcribe-section__container">
@@ -14,10 +17,17 @@ export default function SubcribeSection() {
           with only the finest ingredients and handcrafted with the utmost care,
           each piece is a work of art that is sure to please.
         </p>
-        <button className="button button--orange subcribe-section__btn">
+        <button
+          className="button button--orange subcribe-section__btn"
+          onClick={() => setModalSubcribeIsOpen(true)}
+        >
           Subscribe
         </button>
       </div>
+      <NewsModal
+        isOpen={modalSubcribeIsOpen}
+        onClose={() => setModalSubcribeIsOpen(false)}
+      />
     </section>
   );
 }

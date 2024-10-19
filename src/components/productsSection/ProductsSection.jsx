@@ -41,8 +41,8 @@ export default function ProductsSection() {
         <ul className="products-section__list">
           <ProductCard />
           <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {/* <ProductCard />
+          <ProductCard /> */}
         </ul>
       </div>
     </section>

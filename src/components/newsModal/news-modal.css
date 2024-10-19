@@ -1,0 +1,138 @@
+.news-modal__backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.news-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 311px;
+  height: 350px;
+  background: #fff;
+  border-radius: 10px;
+  padding-top: 200px;
+}
+
+.news-modal__bacground-img {
+  width: 311px;
+  height: 169px;
+  background-image: url("../../img/modal/news.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.news-modal__container {
+  margin: 0 24px;
+}
+
+.news-modal__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 117%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.news-modal__close-btn {
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 4;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.news-modal__form {
+  display: flex;
+}
+
+.news-modal__btn {
+  padding: 14px 22px;
+  left: 190px;
+  position: absolute;
+}
+
+.news-modal__icon * {
+  stroke: var(--light-color);
+}
+
+.news-modal__label-input {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 14px 18px;
+  gap: 40px;
+  width: 263px;
+  height: 45px;
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .news-modal {
+    border-radius: 15px;
+    width: 538px;
+    height: 412px;
+    padding-top: 236px;
+  }
+
+  .news-modal__bacground-img {
+    width: 538px;
+    height: 196px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .news-modal__container {
+    margin: 0 40px;
+  }
+
+  .news-modal__title {
+    font-size: 24px;
+    line-height: 117%;
+    margin-bottom: 28px;
+    max-width: 300px;
+  }
+
+  .news-modal__close-btn {
+    top: 24px;
+    right: 24px;
+  }
+
+  .news-modal__form {
+    display: flex;
+  }
+
+  .news-modal__btn {
+    padding: 17px 32px;
+    position: static;
+    margin-left: 8px;
+  }
+
+  .news-modal__label-input {
+    font-size: 18px;
+    width: 313px;
+    height: 52px;
+  }
+}
