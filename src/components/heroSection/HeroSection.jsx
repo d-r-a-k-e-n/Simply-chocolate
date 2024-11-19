@@ -1,8 +1,11 @@
+import React, { useState } from "react";
 import Button from "../button/Button.jsx";
+import OrderModal from "../../orderModal/OrderModal.jsx";
 import "./heroSection.css";
 import "../button/button.css";
 
 export default function HeroSection() {
+  const [orderModalIsOpen, setOrderModalIsOpen] = useState(false);
   return (
     <section className="hero-section" id="home">
       <div className="container">
@@ -16,7 +19,12 @@ export default function HeroSection() {
             <ul className="hero-section__button-list">
               <a href="#">
                 <li className="hero-section__button-item">
-                  <Button className={"button button--orange"}>Buy now</Button>
+                  <button
+                    className={"button button--orange"}
+                    onClick={() => setOrderModalIsOpen(true)}
+                  >
+                    Buy now
+                  </button>
                 </li>
               </a>
               <a href="#made-section">
@@ -30,6 +38,10 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <OrderModal
+        isOpen={orderModalIsOpen}
+        onClose={() => setOrderModalIsOpen(false)}
+      />
     </section>
   );
 }

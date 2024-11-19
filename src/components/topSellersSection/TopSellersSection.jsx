@@ -1,10 +1,14 @@
-import "./topSellersSection.css";
+import React, { useState } from "react";
+
+import OrderModal from "../../orderModal/OrderModal.jsx";
 import ChocolateWithNuts from "./../../img/seller/chocolate-with-nuts.jpg";
 import ChocolateMix from "./../../img/seller/chocolate-mix.jpg";
 import DarkChocolate from "./../../img/seller/dark-chocolate.jpg";
-import Button from "../button/Button";
+
+import "./topSellersSection.css";
 
 export default function TopSellersSection() {
+  const [orderModalIsOpen, setOrderModalIsOpen] = useState(false);
   return (
     <section className="top-sellers-section" id="top-sellers-section">
       <div className="container">
@@ -47,11 +51,18 @@ export default function TopSellersSection() {
             bean called Cacao. Cacao has been around for thousands of years and
             was first discovered by the Native American tribe called the Mayans.
           </p>
-          <Button className="button button--orange top-sellers-section__btn">
+          <button
+            className="button button--orange top-sellers-section__btn"
+            onClick={() => setOrderModalIsOpen(true)}
+          >
             Buy now
-          </Button>
+          </button>
         </div>
       </div>
+      <OrderModal
+        isOpen={orderModalIsOpen}
+        onClose={() => setOrderModalIsOpen(false)}
+      />
     </section>
   );
 }

@@ -1,15 +1,17 @@
-import "./reviewModal.css";
 import { ReactComponent as Close } from "../../img/icons/x-close.svg";
-import Button from "../button/Button";
+
+import "./reviewModal.css";
 
 export default function ReviewModal({ isOpen, onClose }) {
-  const onBackdropClick = (event) => {
-    if (event.target.classList.contains("review-modal__backdrop")) onClose();
-  };
   return (
     <>
       {isOpen && (
-        <div className="review-modal__backdrop" onClick={onBackdropClick}>
+        <div
+          className="review-modal__backdrop"
+          onClickCapture={(e) =>
+            e.target.classList.contains("review-modal__backdrop") && onClose()
+          }
+        >
           <div className="review-modal">
             <button
               type="button"
@@ -59,19 +61,19 @@ export default function ReviewModal({ isOpen, onClose }) {
                 <label className="review-modal__form-btn ">
                   <textarea
                     placeholder="Enter text"
-                    className="review-modal__form-text "
+                    className="review-modal__form-text"
                     name="text-review"
                     type="text"
                     required
                     title="true"
                   />
                 </label>
-                <Button
+                <button
                   className="button button--orange review-modal__btn"
                   type="submit"
                 >
                   Submit
-                </Button>
+                </button>
               </form>
             </div>
           </div>

@@ -1,18 +1,14 @@
-import "./productCard.css";
-import ClassicMilkChocolate from "../../img/our-products/classic-milk-chocolate.jpg";
 import Button from "../button/Button";
 
-export default function ProductCard() {
+import "./productCard.css";
+
+export default function ProductCard({ title, photo, ingredient, prise }) {
   return (
     <li className="products-section__item">
-      <img
-        className="products-section__item-img"
-        src={ClassicMilkChocolate}
-        alt=""
-      />
-      <h3 className="products-section__item-title">Classic</h3>
+      <img className="products-section__item-img" src={photo} alt="" />
+      <h3 className="products-section__item-title">{title}</h3>
       <p className="products-section__item-description">
-        Milk chocolate | 45 UAH
+        {ingredient} | {prise}
       </p>
       <Button className="button button--transparent-or products-section__item-btn">
         Buy
