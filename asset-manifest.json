@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/Simply-chocolate/static/css/main.a88bdb87.css",
-    "main.js": "/Simply-chocolate/static/js/main.d33f3e78.js",
+    "main.css": "/Simply-chocolate/static/css/main.e3a4dfbf.css",
+    "main.js": "/Simply-chocolate/static/js/main.9e0d1f19.js",
+    "static/media/chocolate-with-history.mp4": "/Simply-chocolate/static/media/chocolate-with-history.4a64ea43c3723e96a4e7.mp4",
     "static/media/background-header.jpg": "/Simply-chocolate/static/media/background-header.75407f277fc1b130e563.jpg",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-Italic-VariableFont_wght.7451547bd28d8dddbeea.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/Simply-chocolate/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
@@ -12,7 +13,14 @@
     "static/media/chocolate-with-nuts.jpg": "/Simply-chocolate/static/media/chocolate-with-nuts.2cf56de560561e7cc511.jpg",
     "static/media/semi.png": "/Simply-chocolate/static/media/semi.c1191163c08a634a1442.png",
     "static/media/chocolate.png": "/Simply-chocolate/static/media/chocolate.73666b372efdf22f721d.png",
+    "static/media/apple-chocolate.jpg": "/Simply-chocolate/static/media/apple-chocolate.d8dfed2c24feba839f30.jpg",
+    "static/media/roasted-chocplate.jpg": "/Simply-chocolate/static/media/roasted-chocplate.479d7ab46966a83d0307.jpg",
+    "static/media/pineapple-chocolate.jpg": "/Simply-chocolate/static/media/pineapple-chocolate.6ea52bce69d24d546ea6.jpg",
     "static/media/classic-milk-chocolate.jpg": "/Simply-chocolate/static/media/classic-milk-chocolate.b035930244c8dd9401d8.jpg",
+    "static/media/classic-white-chocolate.jpg": "/Simply-chocolate/static/media/classic-white-chocolate.02d6252fed47904266e4.jpg",
+    "static/media/orange-chocolate.jpg": "/Simply-chocolate/static/media/orange-chocolate.711c9b0f3b09d5b8e704.jpg",
+    "static/media/honey-chocolate.jpg": "/Simply-chocolate/static/media/honey-chocolate.cc984e27c7dac24a0af4.jpg",
+    "static/media/lime-chocolate.jpg": "/Simply-chocolate/static/media/lime-chocolate.c30e7799a36f3b7e007c.jpg",
     "static/media/review.jpg": "/Simply-chocolate/static/media/review.4fedfd326006671fc9ba.jpg",
     "static/media/nuts.png": "/Simply-chocolate/static/media/nuts.c58d36488559e93ba703.png",
     "static/media/logo.svg": "/Simply-chocolate/static/media/logo.4a4daf911d6b5eb55af1e2c916f18566.svg",
@@ -24,11 +32,11 @@
     "index.html": "/Simply-chocolate/index.html",
     "static/media/x-close.svg": "/Simply-chocolate/static/media/x-close.c7aafb84cda059783e5d6e0d2e715b76.svg",
     "static/media/menu.svg": "/Simply-chocolate/static/media/menu.1fed03dc496005ac3630863a16fb120b.svg",
-    "main.a88bdb87.css.map": "/Simply-chocolate/static/css/main.a88bdb87.css.map",
-    "main.d33f3e78.js.map": "/Simply-chocolate/static/js/main.d33f3e78.js.map"
+    "main.e3a4dfbf.css.map": "/Simply-chocolate/static/css/main.e3a4dfbf.css.map",
+    "main.9e0d1f19.js.map": "/Simply-chocolate/static/js/main.9e0d1f19.js.map"
   },
   "entrypoints": [
-    "static/css/main.a88bdb87.css",
-    "static/js/main.d33f3e78.js"
+    "static/css/main.e3a4dfbf.css",
+    "static/js/main.9e0d1f19.js"
   ]
 }
