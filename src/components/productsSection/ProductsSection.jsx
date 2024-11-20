@@ -1,12 +1,9 @@
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import ProductCard from "../productCard/ProductCard";
 import "./productsSection.css";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 import Orange from "../../img/our-products/orange-chocolate.jpg";
 import AppleCranberry from "../../img/our-products/apple-chocolate.jpg";
@@ -77,15 +74,22 @@ export default function ProductsSection() {
         </h2>
         <ul className="products-section__list">
           <Swiper
-            modules={[Navigation, Pagination, A11y]}
-            slidesPerView={4}
-            navigation
-            pagination={{ clickable: true }}
+            breakpoints={{
+              1140: { slidesPerView: 4, spaceBetween: 18 },
+              880: { slidesPerView: 3, spaceBetween: 18 },
+              768: { slidesPerView: 2, spaceBetween: 18 },
+              375: { slidesPerView: 1, spaceBetween: 10 },
+            }}
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
           >
             {products.map((element) => (
-              <SwiperSlide>
+              <SwiperSlide key={element.title}>
                 <ProductCard
-                  key={element.title}
                   title={element.title}
                   photo={element.photo}
                   ingredient={element.ingredient}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import OrderModal from "../../orderModal/OrderModal.jsx";
+import OrderModal from "../orderModal/OrderModal";
 import ChocolateWithNuts from "./../../img/seller/chocolate-with-nuts.jpg";
 import ChocolateMix from "./../../img/seller/chocolate-mix.jpg";
 import DarkChocolate from "./../../img/seller/dark-chocolate.jpg";

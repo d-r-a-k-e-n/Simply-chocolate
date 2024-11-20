@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../button/Button.jsx";
-import OrderModal from "../../orderModal/OrderModal.jsx";
+import OrderModal from "../orderModal/OrderModal";
 import "./heroSection.css";
 import "../button/button.css";
 

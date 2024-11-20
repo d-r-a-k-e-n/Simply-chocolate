@@ -1,16 +1,12 @@
-import { Navigation, Pagination, A11y } from "swiper/modules";
-
+import React, { useState } from "react";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 import ResponseCard from "../responseCard/ResponseCard";
 import ReviewModal from "../reviewModal/ReviewModal";
+
+import "swiper/css";
 import "./responseSection.css";
-import React, { useState } from "react";
 
 export default function ResponseSection() {
   const [modalResponseIsOpen, setModalResponseIsOpen] = useState(false);
@@ -47,21 +43,24 @@ export default function ResponseSection() {
         <h2 className="response-section__title">
           <span className="title-accent">chocolate</span> is loved
         </h2>
-        <div className="swiper-container swiper-horizontal our-products-thumb">
+        <div className="swiper-container">
           <ul className="response-section__list swiper-wrapper">
             <Swiper
-              modules={[Navigation, Pagination, A11y]}
-              slidesPerView={3}
-              navigation
-              pagination={{ clickable: true }}
+              modules={[Autoplay]}
+              breakpoints={{
+                1140: { slidesPerView: 3, spaceBetween: 28 },
+                768: { slidesPerView: 2, spaceBetween: 16 },
+                375: { slidesPerView: 1, spaceBetween: 10 },
+              }}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
             >
               {review.map((element) => (
-                <SwiperSlide>
-                  <ResponseCard
-                    key={element.name}
-                    name={element.name}
-                    text={element.text}
-                  />
+                <SwiperSlide key={element.name}>
+                  <ResponseCard name={element.name} text={element.text} />
                 </SwiperSlide>
               ))}
             </Swiper>
