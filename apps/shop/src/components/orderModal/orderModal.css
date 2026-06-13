@@ -1,0 +1,172 @@
+.order-modal__backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.order-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  height: 95%;
+  max-height: 718px;
+  overflow-y: scroll;
+}
+
+.order-modal__container {
+  margin: 32px 24px;
+}
+
+.order-modal__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 117%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.order-modal__product {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.order-modal__img {
+  width: 84px;
+}
+
+.order-modal__close-btn {
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 4;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.order-modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-modal__fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-modal__btn {
+  padding: 12px 28px;
+  margin-top: 18px;
+  width: 133px;
+  height: 45px;
+}
+
+.order-modal__icon * {
+  stroke: var(--dark-color);
+}
+
+.order-modal__form-title {
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0 0 8px 0;
+}
+
+.order-modal__label-input {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 14px 18px;
+  gap: 40px;
+  width: 263px;
+  height: 45px;
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.order-modal__form-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  border-radius: 8px;
+  padding: 13px 18px;
+  width: 263px;
+  height: 91px;
+  resize: none;
+}
+
+@media screen and (min-width: 768px) {
+  .order-modal__container {
+    margin: 48px;
+  }
+
+  .order-modal__title {
+    font-size: 24px;
+  }
+
+  .order-modal__close-btn {
+    top: 24px;
+    right: 24px;
+  }
+
+  .order-modal__product {
+    margin-bottom: 40px;
+    justify-content: start;
+  }
+
+  .order-modal__img {
+    width: 120px;
+  }
+
+  .order-modal__fieldset {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+  }
+
+  .order-modal__label-input.user-name {
+    width: 246px;
+  }
+
+  .order-modal__form-title {
+    font-size: 14px;
+  }
+
+  .order-modal__label-input {
+    gap: 40px;
+    width: 513px;
+    height: 66px;
+    border-radius: 14px;
+  }
+
+  .order-modal__form-text {
+    border-radius: 14px;
+    width: 513px;
+    height: 137px;
+  }
+}
