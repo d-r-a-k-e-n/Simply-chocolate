@@ -1,9 +1,9 @@
 import "./mobile-menu.css";
 import "../menu/menu.css";
 import Menu from "../menu/Menu";
-import Close from "./../../img/icons/x-close.svg?react";
-import Instagram from "./../../img/icons/instagram.svg?react";
-import Twitter from "./../../img/icons/twitter.svg?react";
+import Close from "../../../public/icons/x-close.svg?react";
+import Instagram from "../../../public/icons/instagram.svg?react";
+import Twitter from "../../../public/icons/twitter.svg?react";
 
 export default function MobileMenu({ active, setActive }) {
   return (

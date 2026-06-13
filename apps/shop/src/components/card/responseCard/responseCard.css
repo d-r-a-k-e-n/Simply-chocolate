@@ -1,0 +1,48 @@
+.response-section__item {
+  position: relative;
+  text-align: center;
+  width: 360px;
+  height: 200px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 15px;
+  padding: 40px 19px 24px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.response-section__item-img {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.response-section__item-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 133%;
+  text-align: center;
+  margin-bottom: 24px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.response-section__item-text {
+  text-align: center;
+  color: rgba(17, 17, 17, 0.7);
+  overflow-y: scroll;
+  height: 100px;
+}
+
+@media screen and (min-width: 1140px) {
+  .response-section__item {
+    padding: 40px 24px 24px;
+  }
+}

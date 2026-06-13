@@ -1,7 +1,7 @@
 import Menu from "../menu/Menu";
 import "./footer.css";
-import Instagram from "./../../img/icons/instagram.svg?react";
-import Twitter from "./../../img/icons/twitter.svg?react";
+import Instagram from "../../../public/icons/instagram.svg?react";
+import Twitter from "../../../public/icons/twitter.svg?react";
 
 export default function Footer() {
   return (

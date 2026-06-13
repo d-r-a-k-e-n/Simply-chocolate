@@ -1,0 +1,20 @@
+.review-modal__label-input {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  border-radius: 8px;
+  padding: 13px 18px;
+  width: 263px;
+  height: 45px;
+}
+
+@media screen and (min-width: 768px) {
+  .review-modal__label-input {
+    font-size: 18px;
+    border-radius: 13px;
+    padding: 22px 24px;
+    width: 437px;
+    height: 66px;
+  }
+}

@@ -1,10 +1,10 @@
 import "./header.css";
 import Menu from "../menu/Menu";
 import MobileMenu from "../mobileMenu/MobileMenu";
-import logo from "./../../img/icons/logo.svg";
-import Instagram from "./../../img/icons/instagram.svg?react";
-import Twitter from "./../../img/icons/twitter.svg?react";
-import Burger from "./../../img/icons/menu.svg?react";
+import logo from "../../../public/icons/logo.svg";
+import Instagram from "../../../public/icons/instagram.svg?react";
+import Twitter from "../../../public/icons/twitter.svg?react";
+import Burger from "../../../public/icons/menu.svg?react";
 import React, { useState } from "react";
 
 export default function Header() {
