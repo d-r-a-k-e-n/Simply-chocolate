@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { responseService } from '../../../services/response.service';
 
-import { responseData } from './responseData';
 import Button from "../../ui/button/Button";
 import ResponseCard from "../../card/responseCard/ResponseCard";
 import ReviewModal from "../../modal/reviewModal/ReviewModal";
@@ -12,7 +12,24 @@ import "./responseSection.css";
 
 export default function ResponseSection() {
   const [modalResponseIsOpen, setModalResponseIsOpen] = useState(false);
+  const [responseData, setResponseData] = useState([]);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await responseService.getAll();
+        if (response && response.data) {
+          setResponseData(response.data);
+        } else if (Array.isArray(response)) {
+          setResponseData(response);
+        }
+      } catch (error) {
+        console.error('Error: ', error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <section className="response-section" id="response-section">
@@ -35,11 +52,15 @@ export default function ResponseSection() {
                 pauseOnMouseEnter: true,
               }}
             >
-              {responseData.map((element) => (
-                <SwiperSlide key={element.name}>
-                  <ResponseCard name={element.name} text={element.text} />
-                </SwiperSlide>
-              ))}
+              {responseData && responseData.length > 0 ? (
+                responseData.map((element) => (
+                  <SwiperSlide key={element._id}>
+                    <ResponseCard name={element.name} text={element.text} />
+                  </SwiperSlide>
+                ))
+              ) : (
+                <p>No response</p>
+              )}
             </Swiper>
           </ul>
         </div>

@@ -13,7 +13,7 @@ export default defineConfig({
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',
-      include: ['src/**/*.ts'],
+      include: ['src/**/*.js'],
     },
   },
 });
