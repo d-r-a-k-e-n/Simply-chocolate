@@ -2,11 +2,33 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import ProductCard from "../../card/productCard/ProductCard";
-import {productsData} from "./productsData";
 import "./productsSection.css";
 import "swiper/css";
+import { useEffect, useState } from 'react';
+import { productService } from '../../../services/product.service';
+import { useCart } from '../../../context/CartContext';
 
 export default function ProductsSection() {
+  const [productData, setProductData] = useState([]);
+  const { addToCart, openCart } = useCart();
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const product = await productService.getAll();
+        if (product && product.data) {
+          setProductData(product.data);
+        } else if (Array.isArray(product)) {
+          setProductData(product);
+        }
+      } catch (error) {
+        console.error('Error: ', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <section className="products-section" id="products-section">
       <div className="container">
@@ -28,16 +50,28 @@ export default function ProductsSection() {
               pauseOnMouseEnter: true,
             }}
           >
-            {productsData.map(({ title, photo, ingredient, prise }) => (
-              <SwiperSlide key={title}>
-                <ProductCard
-                  title={title}
-                  photo={photo}
-                  ingredient={ingredient}
-                  prise={prise}
-                />
-              </SwiperSlide>
-            ))}
+            {productData.map(
+              ({ id, name, images, description, default_price }) => (
+                <SwiperSlide key={id}>
+                  <ProductCard
+                    title={name}
+                    photo={images[0]}
+                    ingredient={description}
+                    prise={default_price.unit_amount}
+                    onBuy={() => {
+                      addToCart({
+                        id,
+                        name,
+                        image: images[0],
+                        description,
+                        price: default_price.unit_amount,
+                      });
+                      openCart();
+                    }}
+                  />
+                </SwiperSlide>
+              ),
+            )}
           </Swiper>
         </ul>
       </div>

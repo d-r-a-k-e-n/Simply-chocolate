@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-
-import OrderModal from "../../modal/orderModal/OrderModal";
 import ChocolateWithNuts from "../../../../public/img/seller/chocolate-with-nuts.jpg";
 import ChocolateMix from "../../../../public/img/seller/chocolate-mix.jpg";
 import DarkChocolate from "../../../../public/img/seller/dark-chocolate.jpg";
-import Button from '../../ui/button/Button'
+import Button from "../../ui/button/Button";
+import { useCart } from "../../../context/CartContext";
 
 import "./topSellersSection.css";
 
 export default function TopSellersSection() {
-  const [orderModalIsOpen, setOrderModalIsOpen] = useState(false);
+  const { openCart } = useCart();
+
   return (
     <section className="top-sellers-section" id="top-sellers-section">
       <div className="container">
@@ -54,16 +53,12 @@ export default function TopSellersSection() {
           </p>
           <Button
             className="button button--orange top-sellers-section__btn"
-            onClick={() => setOrderModalIsOpen(true)}
+            onClick={openCart}
           >
             Buy now
           </Button>
         </div>
       </div>
-      <OrderModal
-        isOpen={orderModalIsOpen}
-        onClose={() => setOrderModalIsOpen(false)}
-      />
     </section>
   );
 }

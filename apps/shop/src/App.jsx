@@ -8,10 +8,12 @@ import TopSellersSection from "./components/section/topSellersSection/TopSellers
 import ResponseSection from "./components/section/responseSection/ResponseSection";
 import SubscribeSection from "./components/section/subscribeSection/SubscribeSection";
 import Footer from "./components/footer/Footer";
+import OrderModal from "./components/modal/orderModal/OrderModal";
+import { CartProvider } from "./context/CartContext";
 
 export default function App() {
   return (
-    <>
+    <CartProvider>
       <Header />
       <main>
         <HeroSection />
@@ -24,6 +26,7 @@ export default function App() {
         <SubscribeSection />
       </main>
       <Footer />
-    </>
+      <OrderModal />
+    </CartProvider>
   );
 }

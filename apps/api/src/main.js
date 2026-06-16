@@ -3,6 +3,7 @@ import path from 'path';
 import express from 'express';
 import { connectDb } from './config/db.js';
 import responseModule from './modules/response/response.controller.js';
+import stipeModule from './modules/stripe/stripe.controller'
 
 config({ path: path.resolve(__dirname, '../.env') });
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/response', responseModule);
+app.use('/api/stripe', stipeModule);
 
 async function bootstrap() {
   try {

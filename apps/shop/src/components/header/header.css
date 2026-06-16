@@ -20,6 +20,42 @@
   gap: 18px;
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.header__cart-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark-color);
+  transition: color 0.3s;
+}
+
+.header__cart-btn:hover {
+  color: var(--accent-color);
+}
+
+.header__cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
 .social__icon * {
   stroke: var(--dark-color);
   fill: transparent;

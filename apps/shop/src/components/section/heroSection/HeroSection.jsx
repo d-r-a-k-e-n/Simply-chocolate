@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import Button from "../../ui/button/Button.jsx";
-import OrderModal from "../../modal/orderModal/OrderModal";
+import { useCart } from "../../../context/CartContext";
 import "./heroSection.css";
 import "../../ui/button/button.css";
 
 export default function HeroSection() {
-  const [orderModalIsOpen, setOrderModalIsOpen] = useState(false);
+  const { openCart } = useCart();
+
   return (
     <section className="hero-section" id="home">
       <div className="container">
@@ -17,23 +17,19 @@ export default function HeroSection() {
 
           <div className="hero-section__button-container">
             <Button
-              className={'button button--orange'}
-              onClick={() => setOrderModalIsOpen(true)}
+              className={"button button--orange"}
+              onClick={openCart}
             >
               Buy now
             </Button>
             <a href="#made-section">
-              <Button className={'button button--transparent'}>
+              <Button className={"button button--transparent"}>
                 How it’s made
               </Button>
             </a>
           </div>
         </div>
       </div>
-      <OrderModal
-        isOpen={orderModalIsOpen}
-        onClose={() => setOrderModalIsOpen(false)}
-      />
     </section>
   );
 }
