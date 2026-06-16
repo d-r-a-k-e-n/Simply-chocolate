@@ -6,7 +6,7 @@ import MadeSection from "./components/section/madeSection/MadeSection";
 import ProductsSection from "./components/section/productsSection/ProductsSection";
 import TopSellersSection from "./components/section/topSellersSection/TopSellersSection";
 import ResponseSection from "./components/section/responseSection/ResponseSection";
-import SubcribeSection from "./components/section/subcribeSection/SubcribeSection";
+import SubscribeSection from "./components/section/subscribeSection/SubscribeSection";
 import Footer from "./components/footer/Footer";
 
 export default function App() {
@@ -21,7 +21,7 @@ export default function App() {
         <ProductsSection />
         <TopSellersSection />
         <ResponseSection />
-        <SubcribeSection />
+        <SubscribeSection />
       </main>
       <Footer />
     </>
