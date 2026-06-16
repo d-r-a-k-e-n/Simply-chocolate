@@ -39,29 +39,29 @@ export default function ResponseSection() {
         </h2>
         <div className="swiper-container">
           <ul className="response-section__list">
-            <Swiper
-              modules={[Autoplay]}
-              breakpoints={{
-                1140: { slidesPerView: 3, spaceBetween: 28 },
-                768: { slidesPerView: 2, spaceBetween: 16 },
-                375: { slidesPerView: 1, spaceBetween: 10 },
-              }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-            >
-              {responseData && responseData.length > 0 ? (
-                responseData.map((element) => (
+            {responseData && responseData.length > 0 ? (
+              <Swiper
+                modules={[Autoplay]}
+                breakpoints={{
+                  1140: { slidesPerView: 3, spaceBetween: 28 },
+                  768: { slidesPerView: 2, spaceBetween: 16 },
+                  375: { slidesPerView: 1, spaceBetween: 10 },
+                }}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+              >
+                {responseData.map((element) => (
                   <SwiperSlide key={element._id}>
                     <ResponseCard name={element.name} text={element.text} />
                   </SwiperSlide>
-                ))
-              ) : (
-                <p>No response</p>
-              )}
-            </Swiper>
+                ))}
+              </Swiper>
+            ) : (
+              <p className="response-section__no-response">No response</p>
+            )}
           </ul>
         </div>
         <Button

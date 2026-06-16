@@ -2,13 +2,17 @@
   margin-bottom: 72px;
 }
 
-.response-section__title {
+.response-section__title,
+.response-section__no-response {
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   text-align: center;
+}
+
+.response-section__title {
   margin-bottom: 32px;
 }
 
@@ -29,6 +33,10 @@
 .response-section .swiper-slide {
   overflow: visible;
   height: auto;
+}
+
+.response-section__no-response {
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
