@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-export const getStripeProducts = async (req, res) => {
+export const getAll = async (req, res) => {
   try {
     const products = await stripe.products.list({
       active: true,

@@ -4,7 +4,7 @@ import Review from "../../../../public/img/review.jpg";
 export default function ResponseCard({ name, text }) {
   return (
     <div className="response-section__item">
-      <img className="response-section__item-img" src={Review} alt="Review" />
+      <img className="response-section__item-img" src={Review} alt="Review icon" />
       <h3 className="response-section__item-title">{name}</h3>
       <p className="response-section__item-text">{text}</p>
     </div>

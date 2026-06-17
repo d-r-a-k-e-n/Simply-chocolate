@@ -9,6 +9,7 @@
     "express": "^4.21.2",
     "mongodb": "^7.3.0",
     "mongoose": "^9.7.0",
+    "nodemailer": "^9.0.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "6.30.3",

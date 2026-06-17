@@ -12,7 +12,7 @@ export default function ingredientCard({
   return (
     <li className="ingredient-section__item">
       <div className={className}>
-        <img src={img} className="ingredient-section__img" />
+        <img className="ingredient-section__img" src={img} alt={`${title} img`} />
         <h2 className="ingredient-section__item-title-front">{title}</h2>
       </div>
 
