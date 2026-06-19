@@ -1,6 +1,7 @@
 import express from 'express';
 import { connectDb } from './config/db.js';
 import mailerModule from './modules/mailer/mailer.controller.js';
+import checkoutModule from './modules/checkout/checkout.controller.js';
 import productModule from './modules/product/product.controller';
 import responseModule from './modules/response/response.controller';
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/mailer', mailerModule);
+app.use('/api/checkout', checkoutModule);
 app.use('/api/product', productModule);
 app.use('/api/response', responseModule);
 

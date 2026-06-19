@@ -69,6 +69,10 @@ export function CartProvider({ children }) {
     [items],
   );
 
+  const clearCart = useCallback(() => {
+    setItems([]);
+  }, []);
+
   const openCart = useCallback(() => setIsCartOpen(true), []);
   const closeCart = useCallback(() => setIsCartOpen(false), []);
 
@@ -83,6 +87,7 @@ export function CartProvider({ children }) {
       isCartOpen,
       openCart,
       closeCart,
+      clearCart,
     }),
     [
       items,
@@ -94,6 +99,7 @@ export function CartProvider({ children }) {
       isCartOpen,
       openCart,
       closeCart,
+      clearCart,
     ],
   );
 

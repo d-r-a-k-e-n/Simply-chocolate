@@ -198,7 +198,6 @@
 .order-modal__btn {
   padding: 12px 28px;
   margin-top: 18px;
-  width: 133px;
   height: 45px;
 }
 
@@ -303,4 +302,10 @@
     width: 513px;
     height: 137px;
   }
+}
+
+.order-modal__error {
+  color: #c0392b;
+  font-size: 14px;
+  margin-bottom: 12px;
 }

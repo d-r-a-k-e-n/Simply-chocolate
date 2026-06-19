@@ -1,7 +1,9 @@
+import { useState } from "react";
 import "./orderModal.css";
 import Close from "../../../../public/icons/x-close.svg?react";
 import Button from "../../ui/button/Button";
-import { useCart, CART_STORAGE_KEY } from "../../../context/CartContext";
+import { useCart } from "../../../context/CartContext";
+import { checkoutService } from "../../../services/checkout.service";
 
 function formatPrice(cents) {
   return `$${(cents / 100).toFixed(2)}`;
@@ -16,13 +18,55 @@ export default function OrderModal() {
     removeFromCart,
     totalPrice,
   } = useCart();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const onBackdropClick = (event) => {
     if (event.target.classList.contains("order-modal__backdrop")) closeCart();
   };
 
-  const buyProduct = () => {
-    localStorage.removeItem(CART_STORAGE_KEY);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+
+    if (items.length === 0) {
+      setError("Your cart is empty");
+      return;
+    }
+
+    const hasInvalidItems = items.some((item) => !item.priceId);
+
+    if (hasInvalidItems) {
+      setError("Please remove old items and add products again before checkout");
+      return;
+    }
+
+    const formData = new FormData(event.currentTarget);
+    const customer = {
+      name: formData.get("name-order"),
+      surname: formData.get("surname-order"),
+      email: formData.get("email-subscribe"),
+      phone: formData.get("phone-order"),
+      comment: formData.get("text-order"),
+    };
+
+    try {
+      setIsSubmitting(true);
+
+      const { url } = await checkoutService.createSession({
+        items: items.map(({ priceId, quantity }) => ({ priceId, quantity })),
+        customer,
+        successUrl: `${window.location.origin}/?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
+        cancelUrl: `${window.location.origin}/?checkout=cancel`,
+      });
+
+      window.location.href = url;
+    } catch (submitError) {
+      console.error(submitError);
+      setError(submitError.message || "Failed to start payment. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isCartOpen) return null;
@@ -112,7 +156,7 @@ export default function OrderModal() {
             )}
           </div>
 
-          <form className="order-modal__form">
+          <form className="order-modal__form" onSubmit={handleSubmit}>
             <h4 className="order-modal__form-title">Personal information</h4>
             <fieldset className="order-modal__fieldset">
               <label className="order-modal__form-btn">
@@ -154,7 +198,7 @@ export default function OrderModal() {
                 placeholder="Phone number"
                 className="order-modal__label-input"
                 name="phone-order"
-                type="phone"
+                type="tel"
                 pattern="\+[0-9]{12}"
                 required
                 title="true"
@@ -170,12 +214,13 @@ export default function OrderModal() {
                 title="true"
               />
             </label>
+            {error && <p className="order-modal__error">{error}</p>}
             <Button
               className="button button--orange order-modal__btn"
               type="submit"
-              onClick={() => buyProduct()}
+              disabled={isSubmitting || items.length === 0}
             >
-              Submit
+              {isSubmitting ? "Redirecting to payment..." : "Pay with Stripe"}
             </Button>
           </form>
         </div>

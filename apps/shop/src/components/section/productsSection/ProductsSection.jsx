@@ -65,6 +65,7 @@ export default function ProductsSection() {
                         image: images[0],
                         description,
                         price: default_price.unit_amount,
+                        priceId: default_price.id,
                       });
                       openCart();
                     }}

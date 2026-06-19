@@ -77,7 +77,7 @@ export default function NewsModal({ isOpen, onClose }) {
               {isSubmitting ? 'Sending...' : 'Submit'}
             </Button>
           </form>
-          {message && <p className="news-modal__message">{message}</p>} //TODO
+          {message && <p className="news-modal__message">{message}</p>}
         </div>
       </div>
     </div>

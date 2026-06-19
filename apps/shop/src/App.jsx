@@ -9,11 +9,13 @@ import ResponseSection from "./components/section/responseSection/ResponseSectio
 import SubscribeSection from "./components/section/subscribeSection/SubscribeSection";
 import Footer from "./components/footer/Footer";
 import OrderModal from "./components/modal/orderModal/OrderModal";
+import CheckoutReturnHandler from "./components/checkout/CheckoutReturnHandler";
 import { CartProvider } from "./context/CartContext";
 
 export default function App() {
   return (
     <CartProvider>
+      <CheckoutReturnHandler />
       <Header />
       <main>
         <HeroSection />
