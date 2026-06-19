@@ -71,14 +71,14 @@ export default function ProductsSection() {
                     <SwiperSlide key={id}>
                       <ProductCard
                         title={name}
-                        photo={images[0]}
+                        photo={images?.[0]}
                         ingredient={description}
                         prise={default_price.unit_amount}
                         onBuy={() => {
                           addToCart({
                             id,
                             name,
-                            image: images[0],
+                            image: images?.[0] ?? "",
                             description,
                             price: default_price.unit_amount,
                             priceId: default_price.id,

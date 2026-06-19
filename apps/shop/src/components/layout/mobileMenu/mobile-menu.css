@@ -4,7 +4,7 @@
   right: 0;
   top: 0;
   padding: 136px 50px;
-  height: 100vh;
+  height: 100dvh;
   transform: translateX(100%);
   transition: all 0.3s;
   z-index: 10;

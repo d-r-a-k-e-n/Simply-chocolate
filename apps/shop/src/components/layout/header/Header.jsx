@@ -35,10 +35,10 @@ export default function Header() {
               )}
             </Button>
             <div className="social">
-              <a href="#">
+              <a href="https://instagram.com" target="_blank">
                 <Instagram className="social__icon" />
               </a>
-              <a href="#">
+              <a href="https://x.com" target="_blank">
                 <Twitter className="social__icon" />
               </a>
             </div>

@@ -9,7 +9,7 @@ import Button from "../../ui/button/Button";
 export default function MobileMenu({ active, setActive }) {
   return (
     <div
-      className={active ? "mobile-menu active" : "mobile-menu"}
+      className={active ? 'mobile-menu active' : 'mobile-menu'}
       onClick={() => setActive(false)}
     >
       <Button
@@ -19,12 +19,12 @@ export default function MobileMenu({ active, setActive }) {
       >
         <Close className="mobile-menu__icon" />
       </Button>
-      <Menu className={"menu mobile__menu"} />
+      <Menu className={'menu mobile__menu'} />
       <div className="mobile-menu__social ">
-        <a href="#">
+        <a href="https://instagram.com" target="_blank">
           <Instagram className="mobile-menu__icon" />
         </a>
-        <a href="#">
+        <a href="https://x.com" target="_blank">
           <Twitter className="mobile-menu__icon" />
         </a>
       </div>

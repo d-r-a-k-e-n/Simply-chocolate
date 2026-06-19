@@ -17,11 +17,6 @@ export default function ProductCardSkeleton() {
         className="skeleton-product-card__title"
       />
       <Skeleton
-        width="100%"
-        height={12}
-        className="skeleton-product-card__text"
-      />
-      <Skeleton
         width="55%"
         height={12}
         className="skeleton-product-card__text"

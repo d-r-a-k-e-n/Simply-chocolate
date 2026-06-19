@@ -32,10 +32,10 @@ export default function Footer() {
               </ul>
             </div>
             <div className="footer__social">
-              <a href="#">
+              <a href="https://instagram.com" target="_blank">
                 <Instagram className="footer__social-icon" />
               </a>
-              <a href="#">
+              <a href="https://x.com" target="_blank">
                 <Twitter className="footer__social-icon" />
               </a>
             </div>
