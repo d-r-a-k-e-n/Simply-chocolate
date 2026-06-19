@@ -1,7 +1,7 @@
 .response-section__item {
   position: relative;
   text-align: center;
-  width: 360px;
+  max-width: 360px;
   height: 200px;
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: 15px;

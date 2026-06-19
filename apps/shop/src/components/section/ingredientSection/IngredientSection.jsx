@@ -1,8 +1,15 @@
+import { useState } from "react";
 import "./ingredientSection.css";
 import IngredientCard from "../../card/ingredientCard/IngredientCard";
-import {ingredientData} from "./ingredientData";
+import { ingredientData } from "./ingredientData";
 
 export default function IngredientSection() {
+  const [activeTitle, setActiveTitle] = useState(null);
+
+  const handleToggle = (title) => {
+    setActiveTitle((current) => (current === title ? null : title));
+  };
+
   return (
     <section className="ingredient-section">
       <div className="container">
@@ -25,6 +32,8 @@ export default function IngredientSection() {
               title={title}
               text={text}
               button={button}
+              isActive={activeTitle === title}
+              onToggle={handleToggle}
             />
           ))}
         </ul>

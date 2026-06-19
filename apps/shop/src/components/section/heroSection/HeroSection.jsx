@@ -1,11 +1,8 @@
 import Button from "../../ui/button/Button.jsx";
-import { useCart } from "../../../context/CartContext";
 import "./heroSection.css";
 import "../../ui/button/button.css";
 
 export default function HeroSection() {
-  const { openCart } = useCart();
-
   return (
     <section className="hero-section" id="home">
       <div className="container">
@@ -16,14 +13,11 @@ export default function HeroSection() {
           </h2>
 
           <div className="hero-section__button-container">
-            <Button
-              className={"button button--orange"}
-              onClick={openCart}
-            >
-              Buy now
-            </Button>
+            <a href="#products-section">
+              <Button className={'button button--orange'}>Buy now</Button>
+            </a>
             <a href="#made-section">
-              <Button className={"button button--transparent"}>
+              <Button className={'button button--transparent'}>
                 How it’s made
               </Button>
             </a>

@@ -1,7 +1,7 @@
 .products-section__item {
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: 15px;
-  width: 335px;
+  max-width: 335px;
   height: 364px;
   margin: 0 auto;
   background-color: #fff;

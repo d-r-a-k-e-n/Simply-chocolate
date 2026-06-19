@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { SubscribeNodel } from '../../models/Subscribe';
 
 let transporter;
 
@@ -31,6 +32,12 @@ export const sendMail = async (req, res) => {
   }
 
   try {
+    await SubscribeNodel.findOneAndUpdate(
+      { email },
+      { email },
+      { upsert: true, new: true },
+    );
+
     await getTransporter().sendMail({
       from: `"Simple chocolate" <${process.env.EMAIL_USER}>`,
       to: email,

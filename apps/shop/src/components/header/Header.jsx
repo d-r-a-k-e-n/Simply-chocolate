@@ -5,6 +5,7 @@ import logo from "../../../public/icons/logo.svg";
 import Instagram from "../../../public/icons/instagram.svg?react";
 import Twitter from "../../../public/icons/twitter.svg?react";
 import Burger from "../../../public/icons/menu.svg?react";
+import Cart from '../../../public/icons/cart.svg?react';
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 
@@ -19,7 +20,7 @@ export default function Header() {
           <a className="logo" href="#home">
             <img className="logo" src={logo} alt="Logo Simply chocolate" />
           </a>
-          <Menu className={"menu header__menu"} />
+          <Menu className={'menu header__menu'} />
           <div className="header__actions">
             <button
               type="button"
@@ -27,30 +28,7 @@ export default function Header() {
               onClick={openCart}
               aria-label="Open cart"
             >
-              <svg
-                className="header__cart-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6 6H21L19 14H8L6 6Z"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M6 6L5 3H2"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="9.5" cy="18.5" r="1.5" fill="currentColor" />
-                <circle cx="17.5" cy="18.5" r="1.5" fill="currentColor" />
-              </svg>
+              <Cart className="header__cart-icon" strokeWidth="1.5" />
               {totalQuantity > 0 && (
                 <span className="header__cart-count">{totalQuantity}</span>
               )}

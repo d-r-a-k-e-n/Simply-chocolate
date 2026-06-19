@@ -2,13 +2,10 @@ import ChocolateWithNuts from "../../../../public/img/seller/chocolate-with-nuts
 import ChocolateMix from "../../../../public/img/seller/chocolate-mix.jpg";
 import DarkChocolate from "../../../../public/img/seller/dark-chocolate.jpg";
 import Button from "../../ui/button/Button";
-import { useCart } from "../../../context/CartContext";
 
 import "./topSellersSection.css";
 
 export default function TopSellersSection() {
-  const { openCart } = useCart();
-
   return (
     <section className="top-sellers-section" id="top-sellers-section">
       <div className="container">
@@ -51,12 +48,12 @@ export default function TopSellersSection() {
             bean called Cacao. Cacao has been around for thousands of years and
             was first discovered by the Native American tribe called the Mayans.
           </p>
-          <Button
-            className="button button--orange top-sellers-section__btn"
-            onClick={openCart}
-          >
-            Buy now
-          </Button>
+
+          <a href="#products-section">
+            <Button className="button button--orange top-sellers-section__btn">
+              Buy now
+            </Button>
+          </a>
         </div>
       </div>
     </section>

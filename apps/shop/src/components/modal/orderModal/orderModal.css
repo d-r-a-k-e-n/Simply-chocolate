@@ -16,6 +16,8 @@
   background: #fff;
   border-radius: 10px;
   height: 95%;
+  width: 100%;
+  max-width: 613px;
   max-height: 718px;
   overflow-y: scroll;
 }

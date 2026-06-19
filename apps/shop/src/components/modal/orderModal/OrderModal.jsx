@@ -166,7 +166,6 @@ export default function OrderModal() {
                   name="name-order"
                   type="text"
                   required
-                  title="true"
                 />
               </label>
               <label className="order-modal__form-btn">
@@ -176,7 +175,6 @@ export default function OrderModal() {
                   name="surname-order"
                   type="text"
                   required
-                  title="true"
                 />
               </label>
             </fieldset>
@@ -189,7 +187,6 @@ export default function OrderModal() {
                 type="email"
                 pattern="([A-z0-9]+@[a-z]+\.[a-z]{2,3})"
                 required
-                title="true"
               />
             </label>
             <h4 className="order-modal__form-title">Phone number</h4>
@@ -201,7 +198,6 @@ export default function OrderModal() {
                 type="tel"
                 pattern="\+[0-9]{12}"
                 required
-                title="true"
               />
             </label>
             <h4 className="order-modal__form-title">Comment</h4>
@@ -210,8 +206,6 @@ export default function OrderModal() {
                 placeholder="Enter text"
                 className="order-modal__form-text"
                 name="text-order"
-                required
-                title="true"
               />
             </label>
             {error && <p className="order-modal__error">{error}</p>}
