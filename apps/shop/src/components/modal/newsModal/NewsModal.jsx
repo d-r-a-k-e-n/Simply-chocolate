@@ -1,16 +1,17 @@
 import "./news-modal.css";
 import Close from "../../../../public/icons/x-close.svg?react";
 import Button from "../../ui/button/Button";
-import { mailerService } from '../../../services/mailer.service';
-import { useState } from 'react';
+import { mailerService } from "../../../services/mailer.service";
+import { useToast } from "../../../context/ToastContext";
+import { useState } from "react";
 
 export default function NewsModal({ isOpen, onClose }) {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
+  const { showToast } = useToast();
 
   const onBackdropClick = (event) => {
-    if (event.target.classList.contains('news-modal__backdrop')) onClose();
+    if (event.target.classList.contains("news-modal__backdrop")) onClose();
   };
 
   const handleSubmit = async (event) => {
@@ -19,16 +20,21 @@ export default function NewsModal({ isOpen, onClose }) {
     if (isSubmitting || !email.trim()) return;
 
     setIsSubmitting(true);
-    setMessage("");
 
     try {
       await mailerService.sendMail({ email: email.trim() });
-      setMessage("Success! Thank you");
+      showToast({
+        type: "success",
+        message: "You have successfully subscribed to our newsletter.",
+      });
       setEmail("");
-      setTimeout(() => onClose(), 1500);
+      onClose();
     } catch (error) {
       console.error(error);
-      setMessage(error.message || "Failed. Try again.");
+      showToast({
+        type: "error",
+        message: error.message || "Subscription failed. Please try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -39,17 +45,18 @@ export default function NewsModal({ isOpen, onClose }) {
   return (
     <div className="news-modal__backdrop" onClick={onBackdropClick}>
       <div className="news-modal">
-        <button
-          type="button"
+        <Button
+          variant="icon"
           className="news-modal__close-btn"
           onClick={() => onClose()}
+          aria-label="Close modal"
         >
           <Close className="news-modal__icon" />
-        </button>
+        </Button>
         <div className="news-modal__bacground-img"></div>
         <div className="news-modal__container">
           <h3 className="news-modal__title">
-            Explore our <span className="title-accent">new chocolate</span>{' '}
+            Explore our <span className="title-accent">new chocolate</span>{" "}
             first!
           </h3>
           <form
@@ -66,18 +73,18 @@ export default function NewsModal({ isOpen, onClose }) {
                 pattern="([A-z0-9]+@[a-z]+\.[a-z]{2,3})"
                 required
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(event) => setEmail(event.target.value)}
               />
             </label>
             <Button
-              className="button button--orange news-modal__btn"
+              variant="primary"
+              className="news-modal__btn"
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Sending...' : 'Submit'}
+              {isSubmitting ? "Sending..." : "Submit"}
             </Button>
           </form>
-          {message && <p className="news-modal__message">{message}</p>}
         </div>
       </div>
     </div>

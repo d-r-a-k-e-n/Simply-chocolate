@@ -40,13 +40,15 @@ export default function IngredientCard({
 
           <div className="ingredient-card__actions">
             <Button
-              className="ingredient-section__btn button button--orange"
+              variant="primary"
+              className="ingredient-section__btn"
               onClick={handleButtonClick}
             >
               {button}
             </Button>
             <Button
-              className="ingredient-section__btn button button--transparent-or"
+              variant="outline"
+              className="ingredient-section__btn"
               onClick={handleButtonClick}
             >
               the benefits

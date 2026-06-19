@@ -1,0 +1,65 @@
+.payment-result-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.payment-result-modal {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 28px;
+  border-radius: 16px;
+  background-color: #fff;
+  text-align: center;
+  animation: payment-result-modal-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.payment-result-modal--success {
+  border-top: 4px solid #2ecc71;
+}
+
+.payment-result-modal--cancel {
+  border-top: 4px solid #e74c3c;
+}
+
+.payment-result-modal__title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 120%;
+  margin-bottom: 16px;
+  color: var(--dark-color);
+}
+
+.payment-result-modal__text {
+  font-size: 14px;
+  line-height: 150%;
+  color: rgba(17, 17, 17, 0.75);
+  margin-bottom: 24px;
+}
+
+.payment-result-modal__btn {
+  min-width: 160px;
+}
+
+@keyframes payment-result-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .payment-result-modal {
+    animation: none;
+  }
+}

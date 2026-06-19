@@ -2,14 +2,18 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import ProductCard from "../../card/productCard/ProductCard";
+import ProductCardSkeleton from "../../card/productCard/ProductCardSkeleton";
 import "./productsSection.css";
 import "swiper/css";
 import { useEffect, useState } from 'react';
 import { productService } from '../../../services/product.service';
 import { useCart } from '../../../context/CartContext';
 
+const SKELETON_COUNT = 4;
+
 export default function ProductsSection() {
   const [productData, setProductData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { addToCart, openCart } = useCart();
 
   useEffect(() => {
@@ -23,6 +27,8 @@ export default function ProductsSection() {
         }
       } catch (error) {
         console.error('Error: ', error);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -44,35 +50,45 @@ export default function ProductsSection() {
               375: { slidesPerView: 1, spaceBetween: 10 },
             }}
             modules={[Autoplay]}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
+            autoplay={
+              isLoading
+                ? false
+                : {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                  }
+            }
           >
-            {productData.map(
-              ({ id, name, images, description, default_price }) => (
-                <SwiperSlide key={id}>
-                  <ProductCard
-                    title={name}
-                    photo={images[0]}
-                    ingredient={description}
-                    prise={default_price.unit_amount}
-                    onBuy={() => {
-                      addToCart({
-                        id,
-                        name,
-                        image: images[0],
-                        description,
-                        price: default_price.unit_amount,
-                        priceId: default_price.id,
-                      });
-                      openCart();
-                    }}
-                  />
-                </SwiperSlide>
-              ),
-            )}
+            {isLoading
+              ? Array.from({ length: SKELETON_COUNT }, (_, index) => (
+                  <SwiperSlide key={`product-skeleton-${index}`}>
+                    <ProductCardSkeleton />
+                  </SwiperSlide>
+                ))
+              : productData.map(
+                  ({ id, name, images, description, default_price }) => (
+                    <SwiperSlide key={id}>
+                      <ProductCard
+                        title={name}
+                        photo={images[0]}
+                        ingredient={description}
+                        prise={default_price.unit_amount}
+                        onBuy={() => {
+                          addToCart({
+                            id,
+                            name,
+                            image: images[0],
+                            description,
+                            price: default_price.unit_amount,
+                            priceId: default_price.id,
+                          });
+                          openCart();
+                        }}
+                      />
+                    </SwiperSlide>
+                  ),
+                )}
           </Swiper>
         </ul>
       </div>

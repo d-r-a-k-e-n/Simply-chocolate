@@ -50,7 +50,7 @@ export default function TopSellersSection() {
           </p>
 
           <a href="#products-section">
-            <Button className="button button--orange top-sellers-section__btn">
+            <Button variant="primary" className="top-sellers-section__btn">
               Buy now
             </Button>
           </a>

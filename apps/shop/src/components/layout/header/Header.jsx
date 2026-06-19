@@ -1,13 +1,14 @@
 import "./header.css";
 import Menu from "../menu/Menu";
 import MobileMenu from "../mobileMenu/MobileMenu";
-import logo from "../../../public/icons/logo.svg";
-import Instagram from "../../../public/icons/instagram.svg?react";
-import Twitter from "../../../public/icons/twitter.svg?react";
-import Burger from "../../../public/icons/menu.svg?react";
-import Cart from '../../../public/icons/cart.svg?react';
+import logo from "../../../../public/icons/logo.svg";
+import Instagram from "../../../../public/icons/instagram.svg?react";
+import Twitter from "../../../../public/icons/twitter.svg?react";
+import Burger from "../../../../public/icons/menu.svg?react";
+import Cart from '../../../../public/icons/cart.svg?react';
 import { useState } from "react";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../../context/CartContext";
+import Button from "../../ui/button/Button";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
@@ -22,8 +23,8 @@ export default function Header() {
           </a>
           <Menu className={'menu header__menu'} />
           <div className="header__actions">
-            <button
-              type="button"
+            <Button
+              variant="icon"
               className="header__cart-btn"
               onClick={openCart}
               aria-label="Open cart"
@@ -32,7 +33,7 @@ export default function Header() {
               {totalQuantity > 0 && (
                 <span className="header__cart-count">{totalQuantity}</span>
               )}
-            </button>
+            </Button>
             <div className="social">
               <a href="#">
                 <Instagram className="social__icon" />
@@ -42,12 +43,14 @@ export default function Header() {
               </a>
             </div>
           </div>
-          <button
+          <Button
+            variant="icon"
             className="mobile-menu__btn-open"
             onClick={() => setMenuActive(!menuActive)}
+            aria-label="Open menu"
           >
             <Burger />
-          </button>
+          </Button>
 
           <MobileMenu active={menuActive} setActive={setMenuActive} />
         </nav>

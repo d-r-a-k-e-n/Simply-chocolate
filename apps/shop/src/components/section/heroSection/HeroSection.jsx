@@ -1,6 +1,5 @@
 import Button from "../../ui/button/Button.jsx";
 import "./heroSection.css";
-import "../../ui/button/button.css";
 
 export default function HeroSection() {
   return (
@@ -14,12 +13,10 @@ export default function HeroSection() {
 
           <div className="hero-section__button-container">
             <a href="#products-section">
-              <Button className={'button button--orange'}>Buy now</Button>
+              <Button variant="primary">Buy now</Button>
             </a>
             <a href="#made-section">
-              <Button className={'button button--transparent'}>
-                How it’s made
-              </Button>
+              <Button variant="ghost">How it’s made</Button>
             </a>
           </div>
         </div>

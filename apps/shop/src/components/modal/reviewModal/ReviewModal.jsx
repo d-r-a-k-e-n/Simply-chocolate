@@ -1,21 +1,25 @@
-import Input from '../../ui/input/Input'
-import Button from '../../ui/button/Button'
+import Input from "../../ui/input/Input";
+import Button from "../../ui/button/Button";
 import Close from "../../../../public/icons/x-close.svg?react";
-import {responseService} from '../../../services/response.service';
+import { responseService } from "../../../services/response.service";
+import { useToast } from "../../../context/ToastContext";
 
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 
 import "./reviewModal.css";
 
 export default function ReviewModal({ isOpen, onClose }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showToast } = useToast();
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const phoneRef = useRef(null);
   const textRef = useRef(null);
 
-  const createResponse = async () => {
+  const createResponse = async (event) => {
+    event.preventDefault();
+
     if (isSubmitting) return;
 
     setIsSubmitting(true);
@@ -29,8 +33,17 @@ export default function ReviewModal({ isOpen, onClose }) {
       };
 
       await responseService.create(data);
+      showToast({
+        type: "success",
+        message: "Your review has been sent successfully. Thank you!",
+      });
+      onClose();
     } catch (error) {
       console.error(error);
+      showToast({
+        type: "error",
+        message: error.message || "Failed to send your review. Please try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -41,11 +54,11 @@ export default function ReviewModal({ isOpen, onClose }) {
   return (
     <div
       className="review-modal__backdrop"
-      onClick={(e) => e.target === e.currentTarget && onClose()}
+      onClick={(event) => event.target === event.currentTarget && onClose()}
     >
       <div className="review-modal">
         <Button
-          type="button"
+          variant="icon"
           className="review-modal__close-btn"
           onClick={() => onClose()}
           aria-label="Close modal"
@@ -57,7 +70,7 @@ export default function ReviewModal({ isOpen, onClose }) {
             leave a review <br className="reviw-modal__br" />
             about <span className="title-accent">our chocolate</span>
           </h3>
-          <form className="review-modal__form" name="form">
+          <form className="review-modal__form" name="form" onSubmit={createResponse}>
             <Input
               placeholder="Name"
               name="name-review"
@@ -93,12 +106,12 @@ export default function ReviewModal({ isOpen, onClose }) {
             />
 
             <Button
-              className="button button--orange review-modal__btn"
+              variant="primary"
+              className="review-modal__btn"
               type="submit"
-              onClick={(e) => createResponse(e)}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Sending...' : 'Submit'}
+              {isSubmitting ? "Sending..." : "Submit"}
             </Button>
           </form>
         </div>

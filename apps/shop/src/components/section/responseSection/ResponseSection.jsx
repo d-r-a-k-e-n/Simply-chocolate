@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { responseService } from '../../../services/response.service';
@@ -6,13 +6,17 @@ import { responseService } from '../../../services/response.service';
 import Button from "../../ui/button/Button";
 import ResponseCard from "../../card/responseCard/ResponseCard";
 import ReviewModal from "../../modal/reviewModal/ReviewModal";
+import ResponseCardSkeleton from "../../card/responseCard/ResponseCardSkeleton";
 
 import "swiper/css";
 import "./responseSection.css";
 
+const SKELETON_COUNT = 3;
+
 export default function ResponseSection() {
   const [modalResponseIsOpen, setModalResponseIsOpen] = useState(false);
   const [responseData, setResponseData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -25,6 +29,8 @@ export default function ResponseSection() {
         }
       } catch (error) {
         console.error('Error: ', error);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -39,7 +45,21 @@ export default function ResponseSection() {
         </h2>
         <div className="swiper-container">
           <ul className="response-section__list">
-            {responseData && responseData.length > 0 ? (
+            {isLoading ? (
+              <Swiper
+                breakpoints={{
+                  1140: { slidesPerView: 3, spaceBetween: 28 },
+                  768: { slidesPerView: 2, spaceBetween: 16 },
+                  375: { slidesPerView: 1, spaceBetween: 10 },
+                }}
+              >
+                {Array.from({ length: SKELETON_COUNT }, (_, index) => (
+                  <SwiperSlide key={`response-skeleton-${index}`}>
+                    <ResponseCardSkeleton />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : responseData.length > 0 ? (
               <Swiper
                 modules={[Autoplay]}
                 breakpoints={{
@@ -65,7 +85,8 @@ export default function ResponseSection() {
           </ul>
         </div>
         <Button
-          className="button button--transparent-or response-section__btn"
+          variant="outline"
+          className="response-section__btn"
           onClick={() => setModalResponseIsOpen(true)}
         >
           Leave a review

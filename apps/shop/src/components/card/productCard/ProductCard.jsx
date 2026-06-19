@@ -10,10 +10,7 @@ export default function ProductCard({ title, photo, ingredient, prise, onBuy }) 
       <p className="products-section__item-description">
         {ingredient} | {(prise / 100).toFixed(2)} $
       </p>
-      <Button
-        className="button button--transparent-or products-section__item-btn"
-        onClick={onBuy}
-      >
+      <Button variant="outline" className="products-section__item-btn" onClick={onBuy}>
         Buy
       </Button>
     </li>

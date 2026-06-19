@@ -3,6 +3,7 @@ import "./orderModal.css";
 import Close from "../../../../public/icons/x-close.svg?react";
 import Button from "../../ui/button/Button";
 import { useCart } from "../../../context/CartContext";
+import { useToast } from "../../../context/ToastContext";
 import { checkoutService } from "../../../services/checkout.service";
 
 function formatPrice(cents) {
@@ -20,6 +21,7 @@ export default function OrderModal() {
   } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const { showToast } = useToast();
 
   const onBackdropClick = (event) => {
     if (event.target.classList.contains("order-modal__backdrop")) closeCart();
@@ -63,7 +65,13 @@ export default function OrderModal() {
       window.location.href = url;
     } catch (submitError) {
       console.error(submitError);
-      setError(submitError.message || "Failed to start payment. Please try again.");
+      const message =
+        submitError.message || "Failed to start payment. Please try again.";
+      setError(message);
+      showToast({
+        type: "error",
+        message,
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -74,13 +82,14 @@ export default function OrderModal() {
   return (
     <div className="order-modal__backdrop" onClick={onBackdropClick}>
       <div className="order-modal">
-        <button
-          type="button"
+        <Button
+          variant="icon"
           className="order-modal__close-btn"
           onClick={closeCart}
+          aria-label="Close cart"
         >
           <Close className="order-modal__icon" />
-        </button>
+        </Button>
 
         <div className="order-modal__container">
           <h3 className="order-modal__title">
@@ -106,8 +115,8 @@ export default function OrderModal() {
                       </p>
                     </div>
                     <div className="order-modal__quantity">
-                      <button
-                        type="button"
+                      <Button
+                        variant="icon"
                         className="order-modal__quantity-btn"
                         onClick={() =>
                           updateQuantity(item.id, item.quantity - 1)
@@ -115,12 +124,12 @@ export default function OrderModal() {
                         aria-label={`Decrease quantity of ${item.name}`}
                       >
                         −
-                      </button>
+                      </Button>
                       <span className="order-modal__quantity-value">
                         {item.quantity}
                       </span>
-                      <button
-                        type="button"
+                      <Button
+                        variant="icon"
                         className="order-modal__quantity-btn"
                         onClick={() =>
                           updateQuantity(item.id, item.quantity + 1)
@@ -128,19 +137,19 @@ export default function OrderModal() {
                         aria-label={`Increase quantity of ${item.name}`}
                       >
                         +
-                      </button>
+                      </Button>
                     </div>
                     <p className="order-modal__cart-total">
                       {formatPrice(item.price * item.quantity)}
                     </p>
-                    <button
-                      type="button"
+                    <Button
+                      variant="icon"
                       className="order-modal__remove-btn"
                       onClick={() => removeFromCart(item.id)}
                       aria-label={`Remove ${item.name} from cart`}
                     >
                       <Close className="order-modal__remove-icon" />
-                    </button>
+                    </Button>
                   </li>
                 ))}
               </ul>
@@ -210,7 +219,8 @@ export default function OrderModal() {
             </label>
             {error && <p className="order-modal__error">{error}</p>}
             <Button
-              className="button button--orange order-modal__btn"
+              variant="primary"
+              className="order-modal__btn"
               type="submit"
               disabled={isSubmitting || items.length === 0}
             >
