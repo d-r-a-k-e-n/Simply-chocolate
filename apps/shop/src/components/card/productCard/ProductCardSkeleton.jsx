@@ -22,7 +22,7 @@ export default function ProductCardSkeleton() {
         className="skeleton-product-card__text"
       />
       <Skeleton
-        width={160}
+        width={208}
         height={40}
         borderRadius={100}
         className="skeleton-product-card__button"
