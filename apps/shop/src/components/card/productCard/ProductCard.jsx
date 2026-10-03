@@ -31,6 +31,8 @@ export default function ProductCard({ title, photo, ingredient, prise, onBuy }) 
           className="products-section__item-img"
           src={photo}
           alt={title}
+          loading="lazy"
+          decoding="async"
           onLoad={() => setIsImageReady(true)}
           onError={() => setHasImageError(true)}
           hidden={!isImageReady}

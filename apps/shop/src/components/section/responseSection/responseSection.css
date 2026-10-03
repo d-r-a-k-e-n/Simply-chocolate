@@ -17,7 +17,7 @@
 }
 
 .response-section__list {
-  margin-bottom: 65px;
+  margin-bottom: 32px;
   padding-left: 0;
 }
 
@@ -52,7 +52,7 @@
   }
 
   .response-section__list {
-    margin-bottom: 94px;
+    margin-bottom: 40px;
     display: flex;
     gap: 16px;
   }

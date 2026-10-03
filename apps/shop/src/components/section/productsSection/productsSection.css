@@ -5,6 +5,9 @@
 .products-section__list {
   display: flex;
   gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .products-section__title {
@@ -30,6 +33,7 @@
 
   .products-section__list {
     gap: 18px;
+    margin-bottom: 40px;
   }
 }
 

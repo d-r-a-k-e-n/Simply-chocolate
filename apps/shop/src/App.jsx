@@ -1,17 +1,13 @@
-import Header from "./components/layout/header/Header";
-import HeroSection from "./components/section/heroSection/HeroSection";
-import BenefitSection from "./components/section/benefitSection/BenefitSection";
-import IngredientSection from "./components/section/ingredientSection/IngredientSection";
-import MadeSection from "./components/section/madeSection/MadeSection";
-import ProductsSection from "./components/section/productsSection/ProductsSection";
-import TopSellersSection from "./components/section/topSellersSection/TopSellersSection";
-import ResponseSection from "./components/section/responseSection/ResponseSection";
-import SubscribeSection from "./components/section/subscribeSection/SubscribeSection";
-import Footer from "./components/layout/footer/Footer";
-import OrderModal from "./components/modal/orderModal/OrderModal";
-import CheckoutReturnHandler from "./components/checkout/CheckoutReturnHandler";
-import { CartProvider } from "./context/CartContext";
-import { ToastProvider } from "./context/ToastContext";
+import MainPage from './pages/mainPage';
+import ProductsPage from './pages/productsPage';
+import OrderModal from './components/modal/orderModal/OrderModal';
+import CheckoutReturnHandler from './components/checkout/CheckoutReturnHandler';
+import { CartProvider } from './context/CartContext';
+import { ToastProvider } from './context/ToastContext';
+import Header from './components/layout/header/Header';
+import Footer from './components/layout/footer/Footer';
+
+import { Routes, Route } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -19,16 +15,10 @@ export default function App() {
       <CartProvider>
         <CheckoutReturnHandler />
         <Header />
-        <main>
-          <HeroSection />
-          <BenefitSection />
-          <IngredientSection />
-          <MadeSection />
-          <ProductsSection />
-          <TopSellersSection />
-          <ResponseSection />
-          <SubscribeSection />
-        </main>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+        </Routes>
         <Footer />
         <OrderModal />
       </CartProvider>
