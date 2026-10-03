@@ -55,7 +55,9 @@ export function ProductsProvider({ children }) {
 
   const types = useMemo(
     () =>
-      [...new Set(products.map((product) => product.type).filter(Boolean))].sort(),
+      [
+        ...new Set(products.map((product) => product.type).filter(Boolean)),
+      ].sort(),
     [products],
   );
 
@@ -71,7 +73,9 @@ export function ProductsProvider({ children }) {
   );
 
   return (
-    <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>
+    <ProductsContext.Provider value={value}>
+      {children}
+    </ProductsContext.Provider>
   );
 }
 

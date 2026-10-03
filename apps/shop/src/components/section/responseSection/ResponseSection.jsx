@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { responseService } from '../../../services/response.service';
 
-import Button from "../../ui/button/Button";
-import ResponseCard from "../../card/responseCard/ResponseCard";
-import ReviewModal from "../../modal/reviewModal/ReviewModal";
-import ResponseCardSkeleton from "../../card/responseCard/ResponseCardSkeleton";
+import Button from '../../ui/button/Button';
+import ResponseCard from '../../card/responseCard/ResponseCard';
+import ReviewModal from '../../modal/reviewModal/ReviewModal';
+import ResponseCardSkeleton from '../../card/responseCard/ResponseCardSkeleton';
 
-import "swiper/css";
-import "./responseSection.css";
+import 'swiper/css';
+import './responseSection.css';
 
 const SKELETON_COUNT = 3;
 

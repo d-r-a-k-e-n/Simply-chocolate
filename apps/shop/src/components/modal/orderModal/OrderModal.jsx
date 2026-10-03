@@ -1,10 +1,10 @@
-import { useState } from "react";
-import "./orderModal.css";
-import Close from "../../../../public/icons/x-close.svg?react";
-import Button from "../../ui/button/Button";
-import { useCart } from "../../../context/CartContext";
-import { useToast } from "../../../context/ToastContext";
-import { checkoutService } from "../../../services/checkout.service";
+import { useState } from 'react';
+import './orderModal.css';
+import Close from '../../../../public/icons/x-close.svg?react';
+import Button from '../../ui/button/Button';
+import { useCart } from '../../../context/CartContext';
+import { useToast } from '../../../context/ToastContext';
+import { checkoutService } from '../../../services/checkout.service';
 
 function formatPrice(cents) {
   return `$${(cents / 100).toFixed(2)}`;
@@ -20,36 +20,38 @@ export default function OrderModal() {
     totalPrice,
   } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const { showToast } = useToast();
 
   const onBackdropClick = (event) => {
-    if (event.target.classList.contains("order-modal__backdrop")) closeCart();
+    if (event.target.classList.contains('order-modal__backdrop')) closeCart();
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError("");
+    setError('');
 
     if (items.length === 0) {
-      setError("Your cart is empty");
+      setError('Your cart is empty');
       return;
     }
 
     const hasInvalidItems = items.some((item) => !item.priceId);
 
     if (hasInvalidItems) {
-      setError("Please remove old items and add products again before checkout");
+      setError(
+        'Please remove old items and add products again before checkout',
+      );
       return;
     }
 
     const formData = new FormData(event.currentTarget);
     const customer = {
-      name: formData.get("name-order"),
-      surname: formData.get("surname-order"),
-      email: formData.get("email-subscribe"),
-      phone: formData.get("phone-order"),
-      comment: formData.get("text-order"),
+      name: formData.get('name-order'),
+      surname: formData.get('surname-order'),
+      email: formData.get('email-subscribe'),
+      phone: formData.get('phone-order'),
+      comment: formData.get('text-order'),
     };
 
     try {
@@ -66,10 +68,12 @@ export default function OrderModal() {
     } catch (submitError) {
       console.error(submitError);
       const message =
-        submitError.message || "Failed to start payment. Please try again.";
+        submitError.response?.data?.message ||
+        submitError.message ||
+        'Failed to start payment. Please try again.';
       setError(message);
       showToast({
-        type: "error",
+        type: 'error',
         message,
       });
     } finally {
@@ -224,7 +228,7 @@ export default function OrderModal() {
               type="submit"
               disabled={isSubmitting || items.length === 0}
             >
-              {isSubmitting ? "Redirecting to payment..." : "Pay with Stripe"}
+              {isSubmitting ? 'Redirecting to payment...' : 'Pay with Stripe'}
             </Button>
           </form>
         </div>

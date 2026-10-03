@@ -1,12 +1,22 @@
 import { useEffect, useMemo, useState } from 'react';
 import ProductCard from '../../components/card/productCard/ProductCard';
-import ProductCardSkeleton from '../../components/card/productCard/ProductCardSkeleton';
+import Loader from '../../components/ui/loader/Loader';
 import '../../components/section/productsSection/productsSection.css';
 import { useCart } from '../../context/CartContext';
-import { useProducts } from '../../context/ProductsContext';
+import { productService } from '../../services/product.service';
 import './catalogPage.css';
 
-const SKELETON_COUNT = 4;
+function normalizeProduct(product) {
+  return {
+    id: product.id,
+    name: product.name ?? '',
+    description: product.description ?? '',
+    type: product.description ?? '',
+    image: product.images?.[0] ?? '',
+    price: product.default_price?.unit_amount ?? 0,
+    priceId: product.default_price?.id ?? '',
+  };
+}
 
 function matchesSearch(product, query) {
   if (!query) return true;
@@ -26,8 +36,9 @@ function matchesSearch(product, query) {
 }
 
 export default function CatalogPage() {
-  const { products, isLoading } = useProducts();
   const { addToCart, openCart } = useCart();
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sortOrder, setSortOrder] = useState('none');
 
@@ -35,20 +46,43 @@ export default function CatalogPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchProducts() {
+      setIsLoading(true);
+
+      try {
+        const params = sortOrder === 'none' ? {} : { sort: sortOrder };
+        const data = await productService.getAll(params);
+        const list = Array.isArray(data) ? data : [];
+
+        if (!cancelled) {
+          setProducts(list.map(normalizeProduct));
+        }
+      } catch (error) {
+        console.error('Error: ', error);
+        if (!cancelled) {
+          setProducts([]);
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    fetchProducts();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [sortOrder]);
+
   const filteredProducts = useMemo(() => {
     const query = search.trim().toLowerCase();
-    const list = products.filter((product) => matchesSearch(product, query));
-
-    if (sortOrder === 'asc') {
-      return [...list].sort((a, b) => a.price - b.price);
-    }
-
-    if (sortOrder === 'desc') {
-      return [...list].sort((a, b) => b.price - a.price);
-    }
-
-    return list;
-  }, [products, search, sortOrder]);
+    return products.filter((product) => matchesSearch(product, query));
+  }, [products, search]);
 
   return (
     <section className="products-section" id="products-section">
@@ -96,33 +130,33 @@ export default function CatalogPage() {
           </div>
         </div>
 
-        <ul className="products-section__list">
-          {isLoading
-            ? Array.from({ length: SKELETON_COUNT }, (_, index) => (
-                <ProductCardSkeleton key={`skeleton-${index}`} />
-              ))
-            : filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  title={product.name}
-                  photo={product.image}
-                  ingredient={product.description}
-                  prise={product.price}
-                  to={`/products/${product.id}`}
-                  onBuy={() => {
-                    addToCart({
-                      id: product.id,
-                      name: product.name,
-                      image: product.image,
-                      description: product.description,
-                      price: product.price,
-                      priceId: product.priceId,
-                    });
-                    openCart();
-                  }}
-                />
-              ))}
-        </ul>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <ul className="products-section__list">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                title={product.name}
+                photo={product.image}
+                ingredient={product.description}
+                prise={product.price}
+                to={`/products/${product.id}`}
+                onBuy={() => {
+                  addToCart({
+                    id: product.id,
+                    name: product.name,
+                    image: product.image,
+                    description: product.description,
+                    price: product.price,
+                    priceId: product.priceId,
+                  });
+                  openCart();
+                }}
+              />
+            ))}
+          </ul>
+        )}
 
         {!isLoading && filteredProducts.length === 0 && (
           <p className="products-page__empty">No products match your search.</p>

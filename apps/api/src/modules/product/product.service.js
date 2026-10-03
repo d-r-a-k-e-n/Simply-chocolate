@@ -1,14 +1,31 @@
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+function getPrice(product) {
+  return product.default_price?.unit_amount ?? 0;
+}
+
+function sortProducts(products, sort) {
+  if (sort === 'asc') {
+    return [...products].sort((a, b) => getPrice(a) - getPrice(b));
+  }
+
+  if (sort === 'desc') {
+    return [...products].sort((a, b) => getPrice(b) - getPrice(a));
+  }
+
+  return products;
+}
+
 export const getAll = async (req, res) => {
   try {
+    const { sort } = req.query;
     const products = await stripe.products.list({
       active: true,
       expand: ['data.default_price'],
     });
 
-    res.json(products.data);
+    res.json(sortProducts(products.data, sort));
   } catch (error) {
     res.status(500).json({ message: 'Error Stripe', error });
   }

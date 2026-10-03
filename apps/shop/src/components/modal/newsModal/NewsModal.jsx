@@ -1,17 +1,17 @@
-import "./news-modal.css";
-import Close from "../../../../public/icons/x-close.svg?react";
-import Button from "../../ui/button/Button";
-import { mailerService } from "../../../services/mailer.service";
-import { useToast } from "../../../context/ToastContext";
-import { useState } from "react";
+import './news-modal.css';
+import Close from '../../../../public/icons/x-close.svg?react';
+import Button from '../../ui/button/Button';
+import { mailerService } from '../../../services/mailer.service';
+import { useToast } from '../../../context/ToastContext';
+import { useState } from 'react';
 
 export default function NewsModal({ isOpen, onClose }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { showToast } = useToast();
 
   const onBackdropClick = (event) => {
-    if (event.target.classList.contains("news-modal__backdrop")) onClose();
+    if (event.target.classList.contains('news-modal__backdrop')) onClose();
   };
 
   const handleSubmit = async (event) => {
@@ -24,16 +24,19 @@ export default function NewsModal({ isOpen, onClose }) {
     try {
       await mailerService.sendMail({ email: email.trim() });
       showToast({
-        type: "success",
-        message: "You have successfully subscribed to our newsletter.",
+        type: 'success',
+        message: 'You have successfully subscribed to our newsletter.',
       });
-      setEmail("");
+      setEmail('');
       onClose();
     } catch (error) {
       console.error(error);
       showToast({
-        type: "error",
-        message: error.message || "Subscription failed. Please try again.",
+        type: 'error',
+        message:
+          error.response?.data?.message ||
+          error.message ||
+          'Subscription failed. Please try again.',
       });
     } finally {
       setIsSubmitting(false);
@@ -56,7 +59,7 @@ export default function NewsModal({ isOpen, onClose }) {
         <div className="news-modal__bacground-img"></div>
         <div className="news-modal__container">
           <h3 className="news-modal__title">
-            Explore our <span className="title-accent">new chocolate</span>{" "}
+            Explore our <span className="title-accent">new chocolate</span>{' '}
             first!
           </h3>
           <form
@@ -82,7 +85,7 @@ export default function NewsModal({ isOpen, onClose }) {
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Submit"}
+              {isSubmitting ? 'Sending...' : 'Submit'}
             </Button>
           </form>
         </div>

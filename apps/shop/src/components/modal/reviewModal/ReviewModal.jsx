@@ -1,12 +1,12 @@
-import Input from "../../ui/input/Input";
-import Button from "../../ui/button/Button";
-import Close from "../../../../public/icons/x-close.svg?react";
-import { responseService } from "../../../services/response.service";
-import { useToast } from "../../../context/ToastContext";
+import Input from '../../ui/input/Input';
+import Button from '../../ui/button/Button';
+import Close from '../../../../public/icons/x-close.svg?react';
+import { responseService } from '../../../services/response.service';
+import { useToast } from '../../../context/ToastContext';
 
-import { useState, useRef } from "react";
+import { useState, useRef } from 'react';
 
-import "./reviewModal.css";
+import './reviewModal.css';
 
 export default function ReviewModal({ isOpen, onClose }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,15 +34,16 @@ export default function ReviewModal({ isOpen, onClose }) {
 
       await responseService.create(data);
       showToast({
-        type: "success",
-        message: "Your review has been sent successfully. Thank you!",
+        type: 'success',
+        message: 'Your review has been sent successfully. Thank you!',
       });
       onClose();
     } catch (error) {
       console.error(error);
       showToast({
-        type: "error",
-        message: error.message || "Failed to send your review. Please try again.",
+        type: 'error',
+        message:
+          error.message || 'Failed to send your review. Please try again.',
       });
     } finally {
       setIsSubmitting(false);
@@ -70,7 +71,11 @@ export default function ReviewModal({ isOpen, onClose }) {
             leave a review <br className="reviw-modal__br" />
             about <span className="title-accent">our chocolate</span>
           </h3>
-          <form className="review-modal__form" name="form" onSubmit={createResponse}>
+          <form
+            className="review-modal__form"
+            name="form"
+            onSubmit={createResponse}
+          >
             <Input
               placeholder="Name"
               name="name-review"
@@ -111,7 +116,7 @@ export default function ReviewModal({ isOpen, onClose }) {
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Submit"}
+              {isSubmitting ? 'Sending...' : 'Submit'}
             </Button>
           </form>
         </div>
