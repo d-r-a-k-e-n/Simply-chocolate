@@ -5,4 +5,14 @@ export const productService = {
     await fetch(`${URL}`)
       .then((res) => res.json())
       .then((data) => data),
+
+  getById: async (id) => {
+    const res = await fetch(`${URL}/${id}`);
+
+    if (!res.ok) {
+      throw new Error('Product not found');
+    }
+
+    return res.json();
+  },
 };

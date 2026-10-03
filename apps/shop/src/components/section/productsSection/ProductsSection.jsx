@@ -5,39 +5,17 @@ import ProductCard from '../../card/productCard/ProductCard';
 import ProductCardSkeleton from '../../card/productCard/ProductCardSkeleton';
 import './productsSection.css';
 import 'swiper/css';
-import { useEffect, useState } from 'react';
-import { productService } from '../../../services/product.service';
 import { useCart } from '../../../context/CartContext';
+import { useProducts } from '../../../context/ProductsContext';
 import Button from '../../ui/button/Button';
 import { useNavigate } from 'react-router-dom';
 
 const SKELETON_COUNT = 4;
 
 export default function ProductsSection() {
-  const [productData, setProductData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { products, isLoading } = useProducts();
   const { addToCart, openCart } = useCart();
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const product = await productService.getAll();
-        if (product && product.data) {
-          setProductData(product.data);
-        } else if (Array.isArray(product)) {
-          setProductData(product);
-        }
-      } catch (error) {
-        console.error('Error: ', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
 
   return (
     <section className="products-section" id="products-section">
@@ -70,29 +48,28 @@ export default function ProductsSection() {
                     <ProductCardSkeleton />
                   </SwiperSlide>
                 ))
-              : productData.map(
-                  ({ id, name, images, description, default_price }) => (
-                    <SwiperSlide key={id}>
-                      <ProductCard
-                        title={name}
-                        photo={images?.[0]}
-                        ingredient={description}
-                        prise={default_price.unit_amount}
-                        onBuy={() => {
-                          addToCart({
-                            id,
-                            name,
-                            image: images?.[0] ?? '',
-                            description,
-                            price: default_price.unit_amount,
-                            priceId: default_price.id,
-                          });
-                          openCart();
-                        }}
-                      />
-                    </SwiperSlide>
-                  ),
-                )}
+              : products.map((product) => (
+                  <SwiperSlide key={product.id}>
+                    <ProductCard
+                      title={product.name}
+                      photo={product.image}
+                      ingredient={product.description}
+                      prise={product.price}
+                      to={`/products/${product.id}`}
+                      onBuy={() => {
+                        addToCart({
+                          id: product.id,
+                          name: product.name,
+                          image: product.image,
+                          description: product.description,
+                          price: product.price,
+                          priceId: product.priceId,
+                        });
+                        openCart();
+                      }}
+                    />
+                  </SwiperSlide>
+                ))}
           </Swiper>
         </ul>
         <Button
